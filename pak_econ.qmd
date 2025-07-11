@@ -1,0 +1,126 @@
+---
+title: "Pakistan Economy at a Glance"
+format: 
+  dashboard:
+    orientation: columns
+    number-sections: false
+execute:
+  freeze: auto
+---
+
+```{r}
+
+library(tidyverse)
+library(WDI)
+
+
+# Retrieve GDP growth rate data for Pakistan
+# The indicator "NY.GDP.MKTP.KD.ZG" represents GDP growth (annual %)
+# gdp_data <- WDI(country = "PAK", indicator = "NY.GDP.MKTP.KD.ZG", start = 1990, end = 2024)
+# write.csv(gdp_data, "gdp_data.csv")
+gdp_data <- read.csv("gdp_data.csv")
+
+# Rename 5 and 6 columns as year and gdp_growth by dropping the first 4 columns
+
+gdp_data <- gdp_data[, c(5, 6)]
+
+colnames(gdp_data) <- c( "year", "gdp_growth")
+
+# Plot the GDP growth rate
+
+avg_growth <- mean(gdp_data$gdp_growth, na.rm = TRUE)
+
+# Create the plot with an average line
+gdp_plot <- ggplot(gdp_data, aes(x = year, y = gdp_growth)) +
+  geom_line(color = "blue") +
+  geom_point(color = "red") +
+  geom_hline(yintercept = avg_growth, linetype = "dashed", color = "black") +
+  labs(
+    title = "GDP Growth Rate for Pakistan (1990-2023)",
+    x = "Year",
+    y = "GDP Growth Rate (%)"
+  ) +
+  theme_minimal()
+
+```
+
+# GDP
+
+## Column {width= "25%"}
+
+```{r}
+#| content: valuebox
+#| title: "Real GDP Growth"
+list(icon = "![](https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg)", 
+     color = "primary",
+     value = "2.68 %")
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "GDP in current prices USD"
+list(icon="wallet",
+     color="success",
+     value="410.6 B")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Inflation Rate"
+list(icon = "chart-line-down",  # Line chart showing decline
+     color = "success",  # Green to indicate positive decline
+     value = "4.7 %")
+
+```
+
+## Column
+
+### Row {.tabset}
+
+::: {.card title="Change in GDP"}
+
+```{r}
+
+library(plotly)
+
+plotly::ggplotly(gdp_plot)
+
+
+```
+
+:::
+
+::: {.card title="Change in Population Size"}
+
+```{r}
+
+```
+
+:::
+
+
+### Row
+
+::: {.card title="Change in Life Expectancy vs GDP per Capital By Country"}
+
+```{r}
+
+
+```
+
+:::
+
+## Column
+
+### Column {.tabset}
+
+```{r}
+```
+
+### Column
+
+```{r}
+
+```
+

@@ -1,0 +1,519 @@
+---
+title: "Life Expectancy"
+format: 
+  dashboard:
+    orientation: columns
+    number-sections: false
+execute:
+  freeze: auto
+---
+
+```{r}
+library(gapminder)
+library(tidyverse)
+
+# GDP per capita for Africa
+gdp_africa <- gapminder %>%
+  filter(continent == "Africa") %>%
+  ggplot(aes(x = year, y = gdpPercap)) +
+  geom_smooth() +
+  labs(title = "GDP per capital for Africa")
+
+# GDP per capita for Asia
+gdp_asia <- gapminder %>%
+  filter(continent == "Asia") %>%
+  ggplot(aes(x = year, y = gdpPercap)) +
+  geom_smooth() +
+  labs(title = "GDP per capital for Asia")
+
+# GDP per capita for Europe
+
+gdp_europe <- gapminder %>%
+  filter(continent == "Europe") %>%
+  ggplot(aes(x = year, y = gdpPercap)) +
+  geom_smooth() +
+  labs(title = "GDP per capital for Europe")
+
+# GDP per capita for Americas
+
+gdp_americas <- gapminder %>%
+  filter(continent == "Americas") %>%
+  ggplot(aes(x = year, y = gdpPercap)) +
+  geom_smooth() +
+  labs(title = "GDP per capital for Americas")
+```
+
+# Africa
+
+## Column {width= "25%"}
+
+```{r}
+#| content: valuebox
+#| title: "Average Population"
+list(icon="globe",
+     color="primary",
+     value="929 M")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average GDP Per Capita"
+list(icon="wallet",
+     color="success",
+     value="3089")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average Life Expectancy"
+list(icon="heartbeat",
+     color="danger",
+     value="54")
+```
+
+## Column
+
+### Row {.tabset}
+
+::: {.card title="Change in GDP"}
+
+```{r}
+gdp_africa
+```
+
+:::
+
+::: {.card title="Change in Population Size"}
+
+```{r}
+gapminder %>%
+  filter(continent == "Africa") %>%
+  ggplot(aes(x = year, y = pop)) +
+  geom_smooth() +
+  labs(title = "Population Size")
+```
+
+:::
+
+
+### Row
+
+::: {.card title="Change in Life Expectancy vs GDP per Capital By Country"}
+
+```{r}
+
+# Scatter plot with all years and color by year
+gapminder %>%
+  filter(continent == "Africa") %>%  # Keep all years
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = factor(year))) +
+  geom_point(size = 3, alpha = 0.7) +  # Scatter plot points
+  geom_smooth(se = FALSE, color = "black", linetype = "dashed") +  # General trend line
+  scale_x_log10() +  # Log scale for GDP per capita
+  scale_color_viridis_d() +  # Better color mapping for categorical years
+  labs(
+    title = "Life Expectancy vs GDP per Capita (Africa, All Years)",
+    x = "GDP per Capita (log scale)",
+    y = "Life Expectancy",
+    color = "Year"  # Label for legend
+  ) +
+  theme_minimal()
+
+```
+
+:::
+
+## Column
+
+### Column {.tabset}
+
+```{r}
+gapminder %>%
+  filter(continent == "Africa", year == 2007, gdpPercap>4000) %>%  # Filter for Africa in 2007
+  ggplot(aes(x = reorder(country, gdpPercap), y = gdpPercap, fill = gdpPercap)) +
+  geom_col() +  # Bar chart
+  coord_flip() +  # Make bars horizontal
+  scale_fill_viridis_c() +  # Smooth gradient color based on GDP
+  labs(
+    title = "GDP per Capita by Country in Africa (2007)",
+    x = "Country",
+    y = "GDP per Capita",
+    fill = "GDP per Capita"
+  ) +
+  theme_minimal()
+```
+
+### Column
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%  # Focus on year 2007
+  ggplot(aes(x = reorder(continent, lifeExp, median), y = lifeExp, fill = continent)) +
+  geom_boxplot(alpha = 0.7) +  # Boxplot with transparency
+  coord_flip() +  # Horizontal boxplot for better readability
+  scale_fill_viridis_d() +  # Improved color scheme
+  labs(
+    title = "Distribution of Life Expectancy by Continent (2007)",
+    x = "Continent",
+    y = "Life Expectancy",
+    fill = "Continent"
+  ) +
+  theme_minimal()
+```
+
+# Asia 
+
+## Column {width= "25%"}
+
+```{r}
+#| content: valuebox
+#| title: "Average Population"
+list(icon="globe",
+     color="primary",
+     value="3811 M")
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average GDP Per Capita"
+list(icon="wallet",
+     color="success",
+     value="12473")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average Life Expectancy"
+list(icon="heart",
+     color="danger",
+     value="70")
+```
+
+## Column
+
+### Row {.tabset}
+
+::: {.card title="Change in GDP"}
+
+```{r}
+gdp_asia
+```
+
+:::
+
+::: {.card title="Change in Population Size"}
+
+```{r}
+gapminder %>%
+  filter(continent == "Asia") %>%
+  ggplot(aes(x = year, y = pop)) +
+  geom_smooth() +
+  labs(title = "Population Size")
+```
+
+:::
+
+### Row
+
+::: {.card title="Change in Life Expectancy vs GDP per Capital By Country"}
+
+```{r}
+gapminder %>%
+  filter(continent == "Asia") %>%  # Keep all years
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = factor(year))) +
+  geom_point(size = 3, alpha = 0.7) +  # Scatter plot points
+  geom_smooth(se = FALSE, color = "black", linetype = "dashed") +  # General trend line
+  scale_x_log10() +  # Log scale for GDP per capita
+  scale_color_viridis_d() +  # Better color mapping for categorical years
+  labs(
+    title = "Life Expectancy vs GDP per Capita (Asia, All Years)",
+    x = "GDP per Capita (log scale)",
+    y = "Life Expectancy",
+    color = "Year"  # Label for legend
+  ) +
+  theme_minimal()
+```
+
+:::
+
+## Column
+
+### Column {.tabset}
+
+```{r}
+gapminder %>%
+  filter(continent == "Asia", year == 2007, gdpPercap>4000) %>%  # Filter for Asia in 2007
+  ggplot(aes(x = reorder(country, gdpPercap), y = gdpPercap, fill = gdpPercap)) +
+  geom_col() +  # Bar chart
+  coord_flip() +  # Make bars horizontal
+  scale_fill_viridis_c() +  # Smooth gradient color based on GDP
+  labs(
+    title = "GDP per Capita by Country in Asia (2007)",
+    x = "Country",
+    y = "GDP per Capita",
+    fill = "GDP per Capita"
+  ) +
+  theme_minimal()
+```
+
+### Column
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%  # Focus on year 2007
+  ggplot(aes(x = reorder(continent, lifeExp, median), y = lifeExp, fill = continent)) +
+  geom_boxplot(alpha = 0.7) +  # Boxplot with transparency
+  coord_flip() +  # Horizontal boxplot for better readability
+  scale_fill_viridis_d() +  # Improved color scheme
+  labs(
+    title = "Distribution of Life Expectancy by Continent (2007)",
+    x = "Continent",
+    y = "Life Expectancy",
+    fill = "Continent"
+  ) +
+  theme_minimal()
+
+```
+
+# Europe
+
+## Column {width= "25%"}
+
+```{r}
+#| content: valuebox
+#| title: "Average Population"
+
+list(icon="globe",
+     color="primary",
+     value="586 M")
+
+```
+
+
+```{r}
+#| content: valuebox
+#| title: "Average GDP Per Capita"
+
+list(icon="wallet",
+     color="success",
+     value="25054")
+```
+
+
+```{r}
+#| content: valuebox
+#| title: "Average Life Expectancy"
+
+list(icon="heart",
+     color="danger",
+     value="76")
+```
+
+## Column
+
+### Row {.tabset}
+
+::: {.card title="Change in GDP"}
+
+```{r}
+gdp_europe
+```
+
+:::
+
+::: {.card title="Change in Population Size"}
+
+```{r}
+gapminder %>%
+  filter(continent == "Europe") %>%
+  ggplot(aes(x = year, y = pop)) +
+  geom_smooth() +
+  labs(title = "Population Size")
+```
+
+:::
+
+### Row
+
+::: {.card title="Change in Life Expectancy vs GDP per Capital By Country"}
+
+```{r}
+gapminder %>%
+  filter(continent == "Europe") %>%  # Keep all years
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = factor(year))) +
+  geom_point(size = 3, alpha = 0.7) +  # Scatter plot points
+  geom_smooth(se = FALSE, color = "black", linetype = "dashed") +  # General trend line
+  scale_x_log10() +  # Log scale for GDP per capita
+  scale_color_viridis_d() +  # Better color mapping for categorical years
+  labs(
+    title = "Life Expectancy vs GDP per Capita (Europe, All Years)",
+    x = "GDP per Capita (log scale)",
+    y = "Life Expectancy",
+    color = "Year"  # Label for legend
+  ) +
+  theme_minimal()
+```
+
+:::
+
+## Column
+
+### Column {.tabset}
+
+```{r}
+gapminder %>%
+  filter(continent == "Europe", year == 2007, gdpPercap>4000) %>%  # Filter for Europe in 2007
+  ggplot(aes(x = reorder(country, gdpPercap), y = gdpPercap, fill = gdpPercap)) +
+  geom_col() +  # Bar chart
+  coord_flip() +  # Make bars horizontal
+  scale_fill_viridis_c() +  # Smooth gradient color based on GDP
+  labs(
+    title = "GDP per Capita by Country in Europe (2007)",
+    x = "Country",
+    y = "GDP per Capita",
+    fill = "GDP per Capita"
+  ) +
+  theme_minimal()
+```
+
+### Column
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%  # Focus on year 2007
+  ggplot(aes(x = reorder(continent, lifeExp, median), y = lifeExp, fill = continent)) +
+  geom_boxplot(alpha = 0.7) +  # Boxplot with transparency
+  coord_flip() +  # Horizontal boxplot for better readability
+  scale_fill_viridis_d() +  # Improved color scheme
+  labs(
+    title = "Distribution of Life Expectancy by Continent (2007)",
+    x = "Continent",
+    y = "Life Expectancy",
+    fill = "Continent"
+  ) +
+  theme_minimal()
+
+```
+
+# Americas
+
+## Column {width= "25%"}
+
+```{r}
+#| content: valuebox
+#| title: "Average Population"
+
+list(icon="globe",
+     color="primary",
+     value="898 M")
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average GDP Per Capita"
+
+list(icon="wallet",
+     color="success",
+     value="22003")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average Life Expectancy"
+
+list(icon="heart",
+     color="danger",
+     value="73")
+
+```
+
+## Column
+
+### Row {.tabset}
+
+::: {.card title="Change in GDP"}
+
+```{r}
+gdp_americas
+```
+
+:::
+
+::: {.card title="Change in Population Size"}
+
+
+```{r}
+gapminder %>%
+  filter(continent == "Americas") %>%
+  ggplot(aes(x = year, y = pop)) +
+  geom_smooth() +
+  labs(title = "Population Size")
+
+```
+
+:::
+
+### Row
+
+::: {.card title="Change in Life Expectancy vs GDP per Capital By Country"}
+
+```{r}
+gapminder %>%
+  filter(continent == "Americas") %>%  # Keep all years
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = factor(year))) +
+  geom_point(size = 3, alpha = 0.7) +  # Scatter plot points
+  geom_smooth(se = FALSE, color = "black", linetype = "dashed") +  # General trend line
+  scale_x_log10() +  # Log scale for GDP per capita
+  scale_color_viridis_d() +  # Better color mapping for categorical years
+  labs(
+    title = "Life Expectancy vs GDP per Capita (Americas, All Years)",
+    x = "GDP per Capita (log scale)",
+    y = "Life Expectancy",
+    color = "Year"  # Label for legend
+  ) +
+  theme_minimal()
+```
+
+
+:::
+
+## Column
+
+### Column {.tabset}
+
+
+```{r}
+gapminder %>%
+  filter(continent == "Americas", year == 2007, gdpPercap>4000) %>%  # Filter for Europe in 2007
+  ggplot(aes(x = reorder(country, gdpPercap), y = gdpPercap, fill = gdpPercap)) +
+  geom_col() +  # Bar chart
+  coord_flip() +  # Make bars horizontal
+  scale_fill_viridis_c() +  # Smooth gradient color based on GDP
+  labs(
+    title = "GDP per Capita by Country in Americas (2007)",
+    x = "Country",
+    y = "GDP per Capita",
+    fill = "GDP per Capita"
+  ) +
+  theme_minimal()
+```
+
+### Column
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%  # Focus on year 2007
+  ggplot(aes(x = reorder(continent, lifeExp, median), y = lifeExp, fill = continent)) +
+  geom_boxplot(alpha = 0.7) +  # Boxplot with transparency
+  coord_flip() +  # Horizontal boxplot for better readability
+  scale_fill_viridis_d() +  # Improved color scheme
+  labs(
+    title = "Distribution of Life Expectancy by Continent (2007)",
+    x = "Continent",
+    y = "Life Expectancy",
+    fill = "Continent"
+  ) +
+  theme_minimal()
+
+```

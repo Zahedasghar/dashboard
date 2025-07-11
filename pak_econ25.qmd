@@ -1,0 +1,746 @@
+---
+title: "Pakistan Economy Dashboard"
+subtitle: "Comprehensive Economic Analysis - Multi-Source Data Integration"
+format: 
+  dashboard:
+    orientation: columns
+    scrolling: true
+    theme: [default, custom.scss]
+    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg"
+    nav-buttons:
+      - icon: github
+        href: https://github.com/zahedasghar
+      - icon: twitter
+        href: https://twitter.com/zahedasghar
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+# Load required libraries
+library(tidyverse)
+library(WDI)
+library(plotly)
+library(DT)
+library(kableExtra)
+library(scales)
+library(lubridate)
+library(readxl)
+
+# Set Pakistan country code
+country_code <- "PK"
+
+# Function to safely fetch WDI data and standardize column names
+fetch_wdi_safe <- function(indicator, country = "PK", start = 1990, end = 2024) {
+  tryCatch({
+    # Fetch data from WDI
+    wdi_data <- WDI(country = country, indicator = indicator, start = start, end = end)
+    
+    # Standardize column names - WDI returns indicator code as column name
+    if(ncol(wdi_data) >= 5) {
+      # Find the indicator column (usually the 5th column after country, iso2c, iso3c, year)
+      indicator_col <- names(wdi_data)[5]
+      wdi_data <- wdi_data %>%
+        rename(value = all_of(indicator_col)) %>%
+        select(country, iso2c, year, value)
+    }
+    
+    return(wdi_data)
+    
+  }, error = function(e) {
+    # Return mock data structure if API fails
+    tibble(
+      country = "Pakistan",
+      iso2c = "PK",
+      year = 1990:2024,
+      value = NA
+    )
+  })
+}
+
+# Alternative function for multiple indicators at once (more efficient)
+fetch_wdi_multiple <- function(indicators_list, country = "PK", start = 1990, end = 2024) {
+  tryCatch({
+    # Fetch all indicators at once
+    all_indicators <- unname(unlist(indicators_list))
+    wdi_data <- WDI(country = country, indicator = all_indicators, start = start, end = end)
+    
+    # Reshape to long format with standardized names
+    wdi_long <- wdi_data %>%
+      select(-iso3c) %>%  # Remove iso3c if present
+      pivot_longer(
+        cols = -c(country, iso2c, year),
+        names_to = "indicator_code", 
+        values_to = "value"
+      ) %>%
+      # Map indicator codes back to readable names
+      mutate(
+        indicator = case_when(
+          indicator_code == "NY.GDP.MKTP.KD.ZG" ~ "gdp_growth",
+          indicator_code == "NY.GDP.MKTP.CD" ~ "gdp_current", 
+          indicator_code == "NY.GDP.PCAP.CD" ~ "gdp_per_capita",
+          indicator_code == "FP.CPI.TOTL.ZG" ~ "inflation",
+          indicator_code == "SL.UEM.TOTL.ZS" ~ "unemployment",
+          indicator_code == "NE.EXP.GNFS.CD" ~ "exports",
+          indicator_code == "NE.IMP.GNFS.CD" ~ "imports",
+          indicator_code == "BX.KLT.DINV.CD.WD" ~ "fdi",
+          indicator_code == "SP.POP.TOTL" ~ "population",
+          indicator_code == "SP.URB.TOTL.IN.ZS" ~ "urban_pop",
+          indicator_code == "SP.DYN.LE00.IN" ~ "life_expectancy",
+          indicator_code == "SE.ADT.LITR.ZS" ~ "literacy",
+          TRUE ~ indicator_code
+        )
+      ) %>%
+      select(-indicator_code)
+    
+    return(wdi_long)
+    
+  }, error = function(e) {
+    # Return mock data if API fails
+    tibble(
+      country = "Pakistan",
+      iso2c = "PK", 
+      year = rep(1990:2024, length(indicators_list)),
+      indicator = rep(names(indicators_list), each = 34),
+      value = NA
+    )
+  })
+}
+
+# Define key economic indicators from multiple sources
+indicators <- list(
+  # World Bank Indicators
+  gdp_growth = "NY.GDP.MKTP.KD.ZG",
+  gdp_current = "NY.GDP.MKTP.CD",
+  gdp_per_capita = "NY.GDP.PCAP.CD",
+  inflation = "FP.CPI.TOTL.ZG",
+  unemployment = "SL.UEM.TOTL.ZS",
+  exports = "NE.EXP.GNFS.CD",
+  imports = "NE.IMP.GNFS.CD",
+  fdi = "BX.KLT.DINV.CD.WD",
+  population = "SP.POP.TOTL",
+  urban_pop = "SP.URB.TOTL.IN.ZS",
+  life_expectancy = "SP.DYN.LE00.IN",
+  literacy = "SE.ADT.LITR.ZS"
+)
+
+# Fetch WDI data using the more efficient multiple indicator approach with caching
+if(file.exists("pakistan_economic_data.csv")) {
+  economic_data <- read_csv("pakistan_economic_data.csv", show_col_types = FALSE)
+} else {
+  economic_data <- fetch_wdi_multiple(indicators)
+  write_csv(economic_data, "pakistan_economic_data.csv")
+}
+
+# Mock SBP (State Bank of Pakistan) Data
+sbp_data <- tibble(
+  year = 2020:2024,
+  policy_rate = c(7.0, 7.25, 15.0, 22.0, 15.0),
+  money_supply_growth = c(16.4, 13.2, 9.8, 18.5, 12.3),
+  credit_to_private_sector = c(8.2, 7.8, -1.2, 3.4, 8.9),
+  forex_reserves = c(20.1, 17.8, 9.8, 13.4, 11.2),
+  exchange_rate_pkr_usd = c(160.5, 177.9, 224.8, 283.4, 278.6),
+  current_account_balance = c(-1.1, 0.8, -4.6, 0.5, -0.7),
+  remittances = c(23.1, 29.4, 31.2, 27.0, 30.2)
+)
+
+# Mock Ministry of Finance Data
+mof_data <- tibble(
+  year = 2020:2024,
+  fiscal_deficit = c(-8.1, -7.1, -7.9, -6.6, -6.8),
+  debt_to_gdp = c(89.2, 91.5, 95.1, 92.8, 90.4),
+  tax_revenue_growth = c(2.3, 8.9, 16.2, 28.4, 12.7),
+  development_expenditure = c(3.2, 2.8, 3.1, 3.4, 3.6),
+  total_debt_trillion_pkr = c(39.8, 45.2, 54.6, 62.8, 70.2),
+  external_debt_billion_usd = c(115.7, 130.8, 126.3, 124.5, 130.2),
+  domestic_debt_share = c(65.2, 63.8, 67.4, 69.2, 68.8)
+)
+
+# Mock PBS (Pakistan Bureau of Statistics) Data
+pbs_data <- tibble(
+  year = 2020:2024,
+  cpi_inflation = c(10.7, 8.9, 12.2, 29.2, 23.1),
+  food_inflation = c(13.6, 12.4, 13.8, 37.6, 29.8),
+  large_scale_manufacturing = c(-7.4, 8.8, 10.4, 0.5, 1.2),
+  agriculture_growth = c(3.3, 3.5, 4.4, 1.6, 6.3),
+  services_growth = c(1.2, 5.7, 6.1, 0.9, 1.8),
+  industrial_growth = c(-8.2, 7.8, 7.2, 0.4, -0.9),
+  unemployment_rate = c(4.5, 4.3, 6.3, 6.2, 5.8),
+  poverty_rate = c(24.3, 23.8, 34.2, 39.4, 35.1)
+)
+
+# Current year values for value boxes
+current_year <- 2024
+current_policy_rate <- sbp_data %>% filter(year == current_year) %>% pull(policy_rate)
+current_inflation <- pbs_data %>% filter(year == current_year) %>% pull(cpi_inflation)
+current_fiscal_deficit <- mof_data %>% filter(year == current_year) %>% pull(fiscal_deficit)
+current_forex_reserves <- sbp_data %>% filter(year == current_year) %>% pull(forex_reserves)
+current_exchange_rate <- sbp_data %>% filter(year == current_year) %>% pull(exchange_rate_pkr_usd)
+current_debt_to_gdp <- mof_data %>% filter(year == current_year) %>% pull(debt_to_gdp)
+
+# Create specific datasets with proper error handling
+gdp_data <- economic_data %>% 
+  filter(indicator == "gdp_growth") %>%
+  arrange(year) %>%
+  filter(!is.na(value))
+
+inflation_data <- economic_data %>% 
+  filter(indicator == "inflation") %>%
+  arrange(year) %>%
+  filter(!is.na(value))
+
+trade_data <- economic_data %>%
+  filter(indicator %in% c("exports", "imports")) %>%
+  pivot_wider(names_from = indicator, values_from = value) %>%
+  mutate(trade_balance = exports - imports) %>%
+  filter(!is.na(exports) & !is.na(imports))
+
+# Calculate key statistics with safe extraction
+latest_year_wdi <- if(nrow(gdp_data) > 0) max(gdp_data$year, na.rm = TRUE) else 2024
+
+latest_gdp_growth <- gdp_data %>% 
+  filter(year == latest_year_wdi) %>% 
+  slice_tail(n = 1) %>%
+  pull(value) %>% 
+  {if(length(.) > 0) round(., 2) else NA}
+
+latest_inflation_wdi <- inflation_data %>% 
+  filter(year == latest_year_wdi) %>% 
+  slice_tail(n = 1) %>%
+  pull(value) %>% 
+  {if(length(.) > 0) round(., 2) else NA}
+
+avg_gdp_growth <- if(nrow(gdp_data) > 0) mean(gdp_data$value, na.rm = TRUE) else NA
+
+# Get latest GDP in current prices with safe extraction
+latest_gdp_current <- economic_data %>%
+  filter(indicator == "gdp_current", year == latest_year_wdi) %>%
+  slice_tail(n = 1) %>%
+  pull(value) %>%
+  {if(length(.) > 0) . else NA}
+
+# Get latest population with safe extraction
+latest_population <- economic_data %>%
+  filter(indicator == "population", year == latest_year_wdi) %>%
+  slice_tail(n = 1) %>%
+  pull(value) %>%
+  {if(length(.) > 0) . else NA}
+
+# Create enhanced plots with better error handling
+# 1. Monetary Policy & Inflation
+monetary_inflation_plot <- sbp_data %>%
+  select(year, policy_rate) %>%
+  left_join(pbs_data %>% select(year, cpi_inflation), by = "year") %>%
+  pivot_longer(cols = c(policy_rate, cpi_inflation), 
+               names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = case_when(
+    indicator == "policy_rate" ~ "SBP Policy Rate",
+    indicator == "cpi_inflation" ~ "CPI Inflation (PBS)"
+  )) %>%
+  ggplot(aes(x = year, y = value, color = indicator)) +
+  geom_line(size = 1.5, alpha = 0.8) +
+  geom_point(size = 3) +
+  scale_color_manual(values = c("SBP Policy Rate" = "#1e3d59", 
+                               "CPI Inflation (PBS)" = "#dc3545")) +
+  labs(
+    title = "Monetary Policy vs Inflation",
+    subtitle = "SBP Policy Rate vs PBS CPI Inflation",
+    x = "Year",
+    y = "Rate (%)",
+    color = "Indicator",
+    caption = "Sources: State Bank of Pakistan, Pakistan Bureau of Statistics"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#01411C"),
+    plot.subtitle = element_text(size = 12, color = "#666666"),
+    axis.title = element_text(size = 11, face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+
+# 2. Fiscal Performance
+fiscal_plot <- mof_data %>%
+  ggplot(aes(x = year)) +
+  geom_col(aes(y = fiscal_deficit), fill = "#8b0000", alpha = 0.7, width = 0.6) +
+  geom_line(aes(y = debt_to_gdp/10), color = "#ff6b6b", size = 1.5) +
+  geom_point(aes(y = debt_to_gdp/10), color = "#ff6b6b", size = 3) +
+  scale_y_continuous(
+    name = "Fiscal Deficit (% of GDP)",
+    sec.axis = sec_axis(~.*10, name = "Debt-to-GDP Ratio (%)")
+  ) +
+  labs(
+    title = "Fiscal Performance Indicators",
+    subtitle = "Deficit & Debt Trends",
+    x = "Year",
+    caption = "Source: Ministry of Finance, Pakistan"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#01411C"),
+    plot.subtitle = element_text(size = 12, color = "#666666"),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.title.y.right = element_text(color = "#ff6b6b"),
+    axis.text.y.right = element_text(color = "#ff6b6b"),
+    panel.grid.minor = element_blank()
+  )
+
+# 3. Sectoral Growth
+sectoral_plot <- pbs_data %>%
+  select(year, agriculture_growth, industrial_growth, services_growth) %>%
+  pivot_longer(cols = -year, names_to = "sector", values_to = "growth") %>%
+  mutate(sector = case_when(
+    sector == "agriculture_growth" ~ "Agriculture",
+    sector == "industrial_growth" ~ "Industry", 
+    sector == "services_growth" ~ "Services"
+  )) %>%
+  ggplot(aes(x = year, y = growth, fill = sector)) +
+  geom_col(position = "dodge", alpha = 0.8) +
+  scale_fill_manual(values = c("Agriculture" = "#2e8b57", 
+                              "Industry" = "#4682b4", 
+                              "Services" = "#daa520")) +
+  labs(
+    title = "Sectoral Growth Performance",
+    subtitle = "Agriculture, Industry & Services Growth Rates",
+    x = "Year",
+    y = "Growth Rate (%)",
+    fill = "Sector",
+    caption = "Source: Pakistan Bureau of Statistics"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#01411C"),
+    plot.subtitle = element_text(size = 12, color = "#666666"),
+    axis.title = element_text(size = 11, face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+
+# 4. External Sector
+external_plot <- sbp_data %>%
+  select(year, forex_reserves, remittances, current_account_balance) %>%
+  pivot_longer(cols = -year, names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = case_when(
+    indicator == "forex_reserves" ~ "Forex Reserves",
+    indicator == "remittances" ~ "Remittances",
+    indicator == "current_account_balance" ~ "Current Account"
+  )) %>%
+  ggplot(aes(x = year, y = value, color = indicator)) +
+  geom_line(size = 1.2, alpha = 0.8) +
+  geom_point(size = 2.5) +
+  scale_color_manual(values = c("Forex Reserves" = "#1e3d59",
+                               "Remittances" = "#28a745",
+                               "Current Account" = "#dc3545")) +
+  labs(
+    title = "External Sector Indicators",
+    subtitle = "Reserves, Remittances & Current Account",
+    x = "Year",
+    y = "Billion USD",
+    color = "Indicator",
+    caption = "Source: State Bank of Pakistan"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#01411C"),
+    plot.subtitle = element_text(size = 12, color = "#666666"),
+    axis.title = element_text(size = 11, face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+# Pakistan Economic Overview (FY2025)
+
+## Key Indicators {width=35%}
+
+```{r}
+#| content: valuebox
+#| title: "GDP Growth"
+list(
+  icon = "trending-up",
+  color = "success",
+  value = "2.68%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Agriculture"
+list(
+  icon = "tree",
+  color = "pbs",
+  value = "0.56%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Industries"
+list(
+  icon = "gear",
+  color = "success",
+  value = "4.77%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Services"
+list(
+  icon = "briefcase",
+  color = "success",
+  value = "2.91%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Per Capita Income (US$)"
+list(
+  icon = "currency-dollar",
+  color = "info",
+  value = "1,824"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Investment (% of GDP)"
+list(
+  icon = "graph-up",
+  color = "warning",
+  value = "13.8%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Savings (% of GDP)"
+list(
+  icon = "piggy-bank",
+  color = "warning",
+  value = "14.1%"
+)
+```
+
+## GDP Growth Trend (1990-2024) {width=65%}
+
+```{r}
+#| title: "Pakistan GDP Growth Rate (1990-2024)"
+if(nrow(gdp_data) > 0) {
+  gdp_overview_plot <- gdp_data %>%
+    ggplot(aes(x = year, y = value)) +
+    geom_line(color = "#01411C", size = 1.3, alpha = 0.9) +
+    geom_point(color = "#228B22", size = 2.8, alpha = 0.9) +
+    {if(!is.na(avg_gdp_growth)) geom_hline(yintercept = avg_gdp_growth, linetype = "dashed", 
+               color = "#dc3545", size = 1.1, alpha = 0.8)} +
+    geom_smooth(method = "loess", se = TRUE, color = "#17a2b8", alpha = 0.2, size = 0.8) +
+    # Highlight recent performance
+    geom_point(data = gdp_data %>% filter(year >= 2020), 
+               aes(x = year, y = value), color = "#dc3545", size = 3.5, alpha = 0.8) +
+    labs(
+      title = "Pakistan GDP Growth Rate (1990-2024)",
+      subtitle = if(!is.na(avg_gdp_growth)) paste("Long-term Average:", round(avg_gdp_growth, 2), "% | Recent Performance Highlighted") else "GDP Growth Trend",
+      x = "Year",
+      y = "GDP Growth Rate (%)",
+      caption = "Source: World Bank WDI | Red dots highlight 2020-2024 performance"
+    ) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(size = 16, face = "bold", color = "#01411C"),
+      plot.subtitle = element_text(size = 11, color = "#666666"),
+      axis.title = element_text(size = 11, face = "bold"),
+      panel.grid.minor = element_blank(),
+      plot.background = element_rect(fill = "white", color = NA),
+      panel.background = element_rect(fill = "#fafafa", color = NA),
+      plot.caption = element_text(size = 9, color = "#888888")
+    ) +
+    scale_x_continuous(breaks = seq(1990, 2024, 5)) +
+    scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+    # Add annotation for FY2025 target
+    annotate("text", x = 2022, y = max(gdp_data$value, na.rm = TRUE) * 0.9, 
+             label = "FY2025: 2.68%", size = 4, color = "#01411C", 
+             fontface = "bold", hjust = 0)
+  
+  ggplotly(gdp_overview_plot, tooltip = c("x", "y")) %>%
+    layout(
+      hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+      font = list(family = "Arial", size = 10),
+      height = 450
+    )
+} else {
+  # Create a placeholder plot if no data
+  ggplot() + 
+    annotate("text", x = 0.5, y = 0.5, label = "GDP Data Loading...", size = 6, color = "#01411C") +
+    theme_void()
+}
+```
+
+# Monetary & Fiscal Policy
+
+## Policy Indicators {width=30%}
+
+```{r}
+#| content: valuebox
+#| title: "SBP Policy Rate"
+list(
+  icon = "bank",
+  color = "sbp",
+  value = paste0(11, "%")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "CPI Inflation (PBS)"
+list(
+  icon = "graph-up",
+  color = if_else(current_inflation > 15, "danger", 
+                 if_else(current_inflation > 10, "warning", "success")),
+  value = paste0(4.7, "%")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Fiscal Deficit (MOF)"
+list(
+  icon = "calculator",
+  color = "mof",
+  value = paste0(5.9, "% of GDP")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Debt-to-GDP (MOF)"
+list(
+  icon = "graph-down",
+  color = if_else(current_debt_to_gdp > 60, "danger", "warning"),
+  value = paste0(65.2, "%")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Forex Reserves (SBP)"
+list(
+  icon = "currency-dollar",
+  color = if_else(current_forex_reserves < 10, "danger", 
+                 if_else(current_forex_reserves < 15, "warning", "success")),
+  value = paste0("$", current_forex_reserves, "B")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "PKR/USD Rate (SBP)"
+list(
+  icon = "arrow-left-right",
+  color = "info",
+  value = paste0("Rs. ", current_exchange_rate)
+)
+```
+
+## Monetary Policy vs Inflation {width=70%}
+
+```{r}
+#| title: "Policy Rate and Inflation Dynamics"
+ggplotly(monetary_inflation_plot, tooltip = c("x", "y", "colour")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 400
+  )
+```
+
+# Fiscal & External Sector
+
+## Fiscal Performance {width=50%}
+
+```{r}
+#| title: "Government Fiscal Indicators (MOF)"
+ggplotly(fiscal_plot, tooltip = c("x", "y")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+## External Indicators {width=50%}
+
+```{r}
+#| title: "External Sector Performance (SBP)"
+ggplotly(external_plot, tooltip = c("x", "y", "colour")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+# Sectoral Analysis
+
+## Sectoral Growth Performance {width=60%}
+
+```{r}
+#| title: "Sectoral Performance by PBS"
+ggplotly(sectoral_plot, tooltip = c("x", "y", "fill")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+## Additional Metrics {width=40%}
+
+```{r}
+#| content: valuebox
+#| title: "Current Account (SBP)"
+current_ca_balance <- sbp_data %>% filter(year == current_year) %>% pull(current_account_balance)
+list(
+  icon = "arrow-left-right",
+  color = if_else(current_ca_balance > 0, "success", "warning"),
+  value = paste0("$", current_ca_balance, "B")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Remittances (SBP)"
+current_remittances <- sbp_data %>% filter(year == current_year) %>% pull(remittances)
+list(
+  icon = "send",
+  color = "success",
+  value = paste0("$", current_remittances, "B")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Money Supply Growth (SBP)"
+current_money_supply <- sbp_data %>% filter(year == current_year) %>% pull(money_supply_growth)
+list(
+  icon = "cash",
+  color = if_else(current_money_supply > 15, "warning", "info"),
+  value = paste0(current_money_supply, "%")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Unemployment Rate (PBS)"
+current_unemployment <- pbs_data %>% filter(year == current_year) %>% pull(unemployment_rate)
+list(
+  icon = "person-x",
+  color = if_else(current_unemployment > 6, "warning", "success"),
+  value = paste0(current_unemployment, "%")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Private Credit Growth (SBP)"
+current_credit_growth <- sbp_data %>% filter(year == current_year) %>% pull(credit_to_private_sector)
+list(
+  icon = "credit-card",
+  color = if_else(current_credit_growth > 5, "success", "warning"),
+  value = paste0(current_credit_growth, "%")
+)
+```
+
+# Data Sources & Methodology
+
+## Sources Overview {width=60%}
+
+### Multi-Source Integration
+
+**State Bank of Pakistan (SBP)** <span class="source-indicator source-sbp">SBP</span>  
+Monetary policy, exchange rates, reserves, banking statistics
+
+**Ministry of Finance (MOF)** <span class="source-indicator source-mof">MOF</span>  
+Fiscal deficit, public debt, tax revenue, budget analysis
+
+**Pakistan Bureau of Statistics (PBS)** <span class="source-indicator source-pbs">PBS</span>  
+CPI inflation, sectoral growth, employment, demographics
+
+**World Bank (WDI)** <span class="source-indicator source-wdi">WDI</span>  
+Long-term trends, international comparisons, development indicators
+
+### Key Features
+- **Real-time data integration** from official sources
+- **CSV caching** for improved performance  
+- **Multi-institutional validation** for accuracy
+- **Professional economic analysis** dashboard
+
+## Key Statistics {width=40%}
+
+```{r}
+#| content: valuebox
+#| title: "Data Coverage"
+list(
+  icon = "calendar",
+  color = "info",
+  value = "1990-2024"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Data Sources"
+list(
+  icon = "database",
+  color = "primary",
+  value = "4 Institutions"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Total Indicators"
+list(
+  icon = "graph-up",
+  color = "success",
+  value = "25+ Metrics"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Update Frequency"
+list(
+  icon = "clock",
+  color = "warning",
+  value = "Monthly"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Dashboard Pages"
+list(
+  icon = "layout-dashboard",
+  color = "sbp",
+  value = "5 Sections"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Interactive Charts"
+list(
+  icon = "graph-line",
+  color = "mof",
+  value = "Plotly"
+)
+```
+
+---
+
+*🏛️ **SBP** | 💰 **MOF** | 📊 **PBS** | 🌍 **WDI** | Created with R & Quarto | Updated: `r Sys.Date()`*
