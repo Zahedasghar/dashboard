@@ -1,6 +1,6 @@
 ---
 title: "Pakistan Economic Observatory"
-subtitle: "Real-time Economic Analysis & Policy Insights - Under Development"
+subtitle: "Real-time Economic Analysis & Policy Insights"
 author: "Dr. Zahid Asghar"
 affiliation: "School of Economics, Quaid-i-Azam University"
 format: 
@@ -459,6 +459,7 @@ external_plot <- sbp_data %>%
 
 ## Row {height=25%}
 
+### Value Boxes {width=20%}
 ```{r}
 #| content: valuebox
 #| title: "GDP Growth"
@@ -468,7 +469,6 @@ list(
   value = "2.68%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Agriculture"
@@ -478,7 +478,6 @@ list(
   value = "0.56%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Industries"
@@ -488,7 +487,6 @@ list(
   value = "4.77%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Services"
@@ -498,7 +496,6 @@ list(
   value = "2.99%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Per Capita Income (US$)"
@@ -508,7 +505,6 @@ list(
   value = "1,824"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Investment (% of GDP)"
@@ -518,7 +514,6 @@ list(
   value = "13.8%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Savings (% of GDP)"
@@ -529,10 +524,8 @@ list(
 )
 ```
 
-## Row {height=75%}
-
-### GDP Growth Trend (1990-2024) {width=50%}
-
+### Main Charts {width=80%}
+#### GDP Growth Trend (1990-2024) {width=50%}
 ```{r}
 #| title: "Pakistan GDP Growth Rate (1990-2024)"
 if(nrow(gdp_data) > 0) {
@@ -570,9 +563,7 @@ if(nrow(gdp_data) > 0) {
     theme_void()
 }
 ```
-
-### Trade Balance Analysis {width=50%}
-
+#### Trade Balance Analysis {width=50%}
 ```{r}
 #| title: "Trade Performance (WDI Data)"
 if(nrow(trade_data) > 0) {
@@ -587,8 +578,9 @@ if(nrow(trade_data) > 0) {
 
 # Monetary & Fiscal Policy
 
-## Row {height=20%}
+## Row {height=100%}
 
+### Key Policy Indicators {width=20%}
 ```{r}
 #| content: valuebox
 #| title: "SBP Policy Rate"
@@ -598,7 +590,6 @@ list(
   value = "11.0%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "CPI Inflation (PBS)"
@@ -608,7 +599,6 @@ list(
   value = "4.5%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Fiscal Deficit (MOF)"
@@ -618,7 +608,6 @@ list(
   value = "5.9% of GDP"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Debt-to-GDP (MOF)"
@@ -628,7 +617,6 @@ list(
   value = "85.2%"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "Forex Reserves (SBP)"
@@ -638,7 +626,6 @@ list(
   value = "$11.2B"
 )
 ```
-
 ```{r}
 #| content: valuebox
 #| title: "PKR/USD Rate (SBP)"
@@ -649,10 +636,10 @@ list(
 )
 ```
 
-## Row {height=40%}
+### Policy Analysis Charts {width=80%}
 
-### Policy Rate and Inflation Dynamics {width=50%}
-
+#### Monetary Policy Analysis {width=100% height=50%}
+##### Policy Rate vs Inflation {width=50%}
 ```{r}
 #| title: "Monetary Policy vs Inflation"
 ggplotly(monetary_inflation_plot, tooltip = c("x", "y", "colour")) %>%
@@ -662,9 +649,7 @@ ggplotly(monetary_inflation_plot, tooltip = c("x", "y", "colour")) %>%
     height = 350
   )
 ```
-
-### Money Supply & Credit Growth {width=50%}
-
+##### Money Supply & Credit Growth {width=50%}
 ```{r}
 #| title: "Monetary Aggregates Performance"
 # Create money supply and credit growth plot
@@ -697,7 +682,6 @@ money_credit_plot <- sbp_data %>%
     legend.position = "bottom",
     panel.grid.minor = element_blank()
   )
-
 ggplotly(money_credit_plot, tooltip = c("x", "y", "colour")) %>%
   layout(
     hoverlabel = list(bgcolor = "white", bordercolor = "black"),
@@ -706,10 +690,8 @@ ggplotly(money_credit_plot, tooltip = c("x", "y", "colour")) %>%
   )
 ```
 
-## Row {height=40%}
-
-### Fiscal Performance {width=50%}
-
+#### Fiscal & Exchange Rate Analysis {width=100% height=50%}
+##### Fiscal Performance {width=50%}
 ```{r}
 #| title: "Government Fiscal Indicators"
 ggplotly(fiscal_plot, tooltip = c("x", "y")) %>%
@@ -719,9 +701,7 @@ ggplotly(fiscal_plot, tooltip = c("x", "y")) %>%
     height = 350
   )
 ```
-
-### Exchange Rate Dynamics {width=50%}
-
+##### Exchange Rate Dynamics {width=50%}
 ```{r}
 #| title: "PKR/USD Exchange Rate Trends"
 ggplotly(exchange_plot, tooltip = c("x", "y")) %>%
@@ -731,61 +711,13 @@ ggplotly(exchange_plot, tooltip = c("x", "y")) %>%
     height = 350
   )
 ```
+
 
 # Fiscal & External Sector
 
-## Fiscal Performance {width=50%}
+## Row {height=100%}
 
-```{r}
-#| title: "Government Fiscal Indicators (MOF)"
-ggplotly(fiscal_plot, tooltip = c("x", "y")) %>%
-  layout(
-    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
-    font = list(family = "Arial", size = 10),
-    height = 350
-  )
-```
-
-## External Indicators {width=50%}
-
-```{r}
-#| title: "External Sector Performance (SBP)"
-ggplotly(external_plot, tooltip = c("x", "y", "colour")) %>%
-  layout(
-    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
-    font = list(family = "Arial", size = 10),
-    height = 350
-  )
-```
-
-## Exchange Rate Dynamics {width=50%}
-
-```{r}
-#| title: "PKR/USD Exchange Rate Trends"
-ggplotly(exchange_plot, tooltip = c("x", "y")) %>%
-  layout(
-    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
-    font = list(family = "Arial", size = 10),
-    height = 350
-  )
-```
-
-## Social Development {width=50%}
-
-```{r}
-#| title: "Unemployment & Poverty Indicators"
-ggplotly(social_plot, tooltip = c("x", "y", "colour")) %>%
-  layout(
-    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
-    font = list(family = "Arial", size = 10),
-    height = 350
-  )
-```
-
-# Sectoral Analysis
-
-## Row {height=15%}
-
+### Key Fiscal & External Indicators {width=20%}
 ```{r}
 #| content: valuebox
 #| title: "Current Account (SBP)"
@@ -819,6 +751,70 @@ list(
 )
 ```
 
+```{r}
+#| content: valuebox
+#| title: "Tax Revenue Growth (MOF)"
+current_tax_growth <- mof_data %>% filter(year == current_year) %>% pull(tax_revenue_growth)
+list(
+  icon = "receipt",
+  color = if_else(current_tax_growth > 10, "success", "warning"),
+  value = paste0(current_tax_growth, "%")
+)
+```
+
+### Fiscal & External Analysis {width=80%}
+
+#### Fiscal Performance Analysis {width=100% height=50%}
+##### Government Fiscal Indicators {width=50%}
+```{r}
+#| title: "Government Fiscal Indicators (MOF)"
+ggplotly(fiscal_plot, tooltip = c("x", "y")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+##### Exchange Rate Dynamics {width=50%}
+```{r}
+#| title: "PKR/USD Exchange Rate Trends"
+ggplotly(exchange_plot, tooltip = c("x", "y")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+#### External Sector Analysis {width=100% height=50%}
+##### External Sector Performance {width=50%}
+```{r}
+#| title: "External Sector Performance (SBP)"
+ggplotly(external_plot, tooltip = c("x", "y", "colour")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+##### Social Development Indicators {width=50%}
+```{r}
+#| title: "Unemployment & Poverty Indicators"
+ggplotly(social_plot, tooltip = c("x", "y", "colour")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
+
+# Sectoral Analysis
+
+## Row {height=100%}
+
+### Sectoral Performance Indicators {width=20%}
 ```{r}
 #| content: valuebox
 #| title: "Unemployment Rate (PBS)"
@@ -863,21 +859,10 @@ list(
 )
 ```
 
-```{r}
-#| content: valuebox
-#| title: "Tax Revenue Growth (MOF)"
-current_tax_growth <- mof_data %>% filter(year == current_year) %>% pull(tax_revenue_growth)
-list(
-  icon = "receipt",
-  color = if_else(current_tax_growth > 10, "success", "warning"),
-  value = paste0(current_tax_growth, "%")
-)
-```
+### Sectoral Performance Analysis {width=80%}
 
-## Row {height=40%}
-
-### Sectoral Growth Performance {width=50%}
-
+#### Economic Sectors & Manufacturing {width=100% height=50%}
+##### Sectoral Growth Performance {width=50%}
 ```{r}
 #| title: "Agriculture, Industry & Services Growth"
 ggplotly(sectoral_plot, tooltip = c("x", "y", "fill")) %>%
@@ -888,22 +873,7 @@ ggplotly(sectoral_plot, tooltip = c("x", "y", "fill")) %>%
   )
 ```
 
-### External Sector Indicators {width=50%}
-
-```{r}
-#| title: "Reserves, Remittances & Current Account"
-ggplotly(external_plot, tooltip = c("x", "y", "colour")) %>%
-  layout(
-    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
-    font = list(family = "Arial", size = 10),
-    height = 350
-  )
-```
-
-## Row {height=45%}
-
-### Manufacturing vs Food Inflation {width=50%}
-
+##### Manufacturing vs Food Inflation {width=50%}
 ```{r}
 #| title: "Manufacturing Performance vs Food Inflation"
 # Create manufacturing and food inflation plot
@@ -942,45 +912,58 @@ ggplotly(manufacturing_food_plot, tooltip = c("x", "y")) %>%
   layout(
     hoverlabel = list(bgcolor = "white", bordercolor = "black"),
     font = list(family = "Arial", size = 10),
-    height = 380
+    height = 350
   )
 ```
 
-### Social Development Indicators {width=50%}
+#### External Sector & Social Development {width=100% height=50%}
+##### External Sector Indicators {width=50%}
+```{r}
+#| title: "Reserves, Remittances & Current Account"
+ggplotly(external_plot, tooltip = c("x", "y", "colour")) %>%
+  layout(
+    hoverlabel = list(bgcolor = "white", bordercolor = "black"),
+    font = list(family = "Arial", size = 10),
+    height = 350
+  )
+```
 
+##### Social Development Trends {width=50%}
 ```{r}
 #| title: "Unemployment & Poverty Trends"
 ggplotly(social_plot, tooltip = c("x", "y", "colour")) %>%
   layout(
     hoverlabel = list(bgcolor = "white", bordercolor = "black"),
     font = list(family = "Arial", size = 10),
-    height = 380
+    height = 350
   )
 ```
 
 # Economic Analysis & Insights
 
-## Key Economic Insights {width=70%}
+## Row {height=100%}
 
-### **Pakistan's Economic Performance Analysis (FY2025)**
+### Economic Analysis {width=70%}
+
+#### **Pakistan's Economic Performance Analysis (FY2025)**
 
 **🔍 Current Economic Situation:**
-Pakistan's economy in FY2025 shows a **mixed recovery pattern** with significant policy adjustments yielding positive results in key areas:
+Pakistan's economy in FY2025 like many times in the past has shown some **stablisation** with measures under IMF restrictions yielding positive results in key areas:
 
 **📈 Growth & Sectoral Performance:**
-- **GDP Growth**: At 2.68%, Pakistan maintains moderate growth despite global headwinds
-- **Sectoral Divergence**: Agriculture shows resilience (0.56% growth) while Industry leads recovery (4.77%)
-- **Services Sector**: Steady contribution with 2.99% growth, indicating domestic demand stability
+- **GDP Growth**: At 2.68%, Pakistan remains in continuously low growth mode despite 
+- **Sectoral Divergence**: Agriculture specially crops shows very dismal picture with all major crops showing negative growth with over all growth in the sector (0.56% growth) while Industry leads recovery (4.77%) though large scale manufacturing remains weak
+- **Services Sector**: Steady contribution with 2.99% growth, indicating domestic demand contraction as compared to previous years
 
 **💰 Monetary Policy Success:**
-- **Inflation Control**: Dramatic improvement from 29.2% (2023) to 4.5% (2024) - a major policy victory
+- **Inflation Control**: Dramatic improvement from 29.2% (2023) to 4.5% (2024) - government claims a major policy victory but the reality is that this is due to base effect, globally lower oil and commodity prices, and not real improvement in the economy
 - **Policy Rate**: SBP maintained accommodative stance with 11% rate, balancing growth and inflation
 - **Exchange Rate**: PKR stabilizing around 278.6/USD after volatile period
 
 **🏛️ Fiscal Consolidation:**
-- **Deficit Reduction**: Fiscal deficit improved to 5.9% of GDP from 6.6% in 2023
-- **Debt Management**: Debt-to-GDP ratio declining to 85.2%, showing fiscal discipline
-- **Revenue Enhancement**: Tax revenue growth at 12.7% indicates improving collection
+- **Deficit Reduction**: Fiscal deficit improved to 5.9% of GDP from 6.6% in 2023 
+- **Debt Management**: Debt-to-GDP ratio declining trend showing fiscal discipline
+- **Revenue Enhancement**: Tax revenue growth indicates improving collection but its not from new tax measures rather sqeezing the existing tax base
 
 **🌍 External Sector Challenges:**
 - **Current Account**: Persistent deficit (-$0.7B) remains a concern
@@ -989,7 +972,7 @@ Pakistan's economy in FY2025 shows a **mixed recovery pattern** with significant
 
 **🏭 Structural Challenges:**
 - **Manufacturing**: Large Scale Manufacturing growth at 1.2% indicates industrial capacity constraints
-- **Employment**: Unemployment at 5.8% requires targeted interventions
+- **Employment**: Unemployment is very high with deep implications for the society
 - **Poverty**: High poverty rate (35.1%) remains the most pressing social challenge
 
 **📊 Policy Recommendations:**
@@ -1002,20 +985,20 @@ Pakistan's economy in FY2025 shows a **mixed recovery pattern** with significant
 **🎯 Outlook:**
 The economy shows signs of **stabilization** with inflation under control and growth recovering. However, **external vulnerabilities** and **structural challenges** require sustained policy focus for sustainable development.
 
-### **Key Performance Indicators Summary**
+#### **Key Performance Indicators Summary**
 
 | **Indicator** | **Current** | **Previous** | **Status** |
 |---------------|-------------|--------------|------------|
-| GDP Growth | 2.68% | Variable | 🟡 Moderate |
-| Inflation | 4.5% | 29.2% | 🟢 Excellent |
-| Policy Rate | 11.0% | 22.0% | 🟢 Accommodative |
-| Fiscal Deficit | 5.9% | 6.6% | 🟢 Improving |
+| GDP Growth | 2.68% | Variable | 🔴  |Low Growth |
+| Inflation | 4.5% | 29.2% | 🟢 Excellent but no govt role|
+| Policy Rate | 11.0% | 22.0% | 🟡 Accommodative |
+| Fiscal Deficit | 5.9% | 6.6% | 🟡 Improving |
 | Forex Reserves | $11.2B | $13.4B | 🔴 Critical |
 | Current Account | -$0.7B | $0.5B | 🟡 Manageable |
 
-## Data Sources {width=30%}
+### Data Sources & Technical Info {width=30%}
 
-### **Data Integration**
+#### **Data Integration**
 
 **🏛️ State Bank of Pakistan (SBP)**
 - Monetary policy rates
@@ -1040,7 +1023,7 @@ The economy shows signs of **stabilization** with inflation under control and gr
 - Development indicators
 - Trade statistics
 
-### **Technical Features**
+#### **Technical Features**
 ✅ **Real-time data integration**  
 ✅ **Multi-source validation**  
 ✅ **Parallel processing**  
@@ -1048,12 +1031,12 @@ The economy shows signs of **stabilization** with inflation under control and gr
 ✅ **Interactive visualizations**  
 ✅ **Professional analysis**
 
-### **Update Schedule**
+#### **Update Schedule**
 - **Monthly**: Key indicators
 - **Quarterly**: Detailed analysis
 - **Annual**: Comprehensive review
 
-### **Data Quality**
+#### **Data Quality**
 - ✅ Official government sources
 - ✅ International standards
 - ✅ Cross-validation methods
