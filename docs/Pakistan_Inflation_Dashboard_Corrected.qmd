@@ -1,0 +1,110 @@
+---
+title: "Pakistan Inflation Dashboard"
+subtitle: "Underlying Inflation Measures & Monetary Policy Tracker"
+author: "State Bank of Pakistan Analysis"
+date: "September 2025"
+format:
+  dashboard:
+    document-css: false
+    link-citations: true
+    date-format: long
+    lang: en
+    page-layout: custom
+    theme: cosmo
+    logo: ""
+    nav-buttons:
+      - icon: github
+        href: https://github.com
+    orientation: columns
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Load required libraries
+library(plotly)
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(DT)
+library(htmltools)
+library(kableExtra)
+
+# Current inflation measures (September 2025)
+# Corrections applied:
+# - Urban CPI 5.5, Rural CPI 5.8 (PBS)
+# - Food = 4.4 (urban food YoY; using urban figure to avoid unsupported "national 3.8")
+# - Non-food = 6.2 (urban non-food YoY; replace unsupported 8.2)
+inflation_measures <- data.frame(
+  name = c("Headline CPI", "Core CPI", "Food Inflation",
+           "Non-Food Inflation", "Urban CPI", "Rural CPI"),
+  current = c(5.6, 7.0, 4.4, 6.2, 5.5, 5.8),
+  previous = c(3.0, 7.2, 0.5, 8.5, 3.2, 2.7),
+  target = c(6.0, 6.5, 6.0, 6.0, 6.0, 6.0),
+  description = c("Overall consumer price inflation",
+                  "Excludes food and energy (NFNE, urban)",
+                  "Food & beverages (Urban YoY, PBS)",
+                  "Non-food (Urban YoY, PBS)",
+                  "Urban areas inflation",
+                  "Rural areas inflation"),
+  stringsAsFactors = FALSE
+)
+
+# Add calculated columns
+inflation_measures <- inflation_measures %>%
+  mutate(
+    change = current - previous,
+    diff_from_target = current - target,
+    status = case_when(
+      abs(diff_from_target) <= 0.5 ~ "Within Target",
+      diff_from_target < -0.5 ~ "Below Target",
+      diff_from_target > 0.5 & diff_from_target <= 2 ~ "Above Target",
+      TRUE ~ "Significantly Above"
+    )
+  )
+
+# Historical data (last 24 months)
+# Corrections applied (headline YoY):
+# - Feb-25: 1.8 -> 1.5
+# - Apr-25: 0.5 -> 0.3 (national headline)
+historical_data <- data.frame(
+  month = c("Oct-23", "Nov-23", "Dec-23", "Jan-24", "Feb-24", "Mar-24",
+            "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24",
+            "Oct-24", "Nov-24", "Dec-24", "Jan-25", "Feb-25", "Mar-25",
+            "Apr-25", "May-25", "Jun-25", "Jul-25", "Aug-25", "Sep-25"),
+  headline = c(26.9, 29.2, 29.7, 28.3, 23.1, 20.7, 17.3, 11.8, 12.6,
+               11.1, 9.6, 6.9, 7.2, 4.9, 4.1, 2.7, 1.5, 0.7, 0.3,
+               3.5, 3.2, 4.5, 3.0, 5.6),
+  core = c(18.5, 19.2, 20.1, 19.8, 17.5, 16.2, 15.1, 14.2, 13.8,
+           12.5, 11.3, 10.2, 9.8, 9.1, 8.5, 8.2, 7.9, 7.6, 7.4,
+           7.3, 7.1, 7.0, 7.2, 7.0),
+  food = c(30.5, 34.1, 35.2, 32.8, 26.5, 23.8, 18.5, 10.2, 11.5,
+           9.8, 7.5, 3.8, 4.2, 1.5, 0.8, -1.2, -2.5, -4.1, -4.8,
+           1.2, 0.8, 2.5, -0.5, 4.4),
+  policy = c(22.0, 22.0, 22.0, 22.0, 22.0, 22.0, 22.0, 22.0, 22.0,
+             19.5, 19.5, 17.5, 17.5, 15.0, 15.0, 12.0, 12.0, 12.0,
+             12.0, 11.0, 11.0, 11.0, 11.0, 11.0),
+  stringsAsFactors = FALSE
+)
+
+# Component data
+component_data <- data.frame(
+  category = c("Food & Beverages", "Food & Beverages", "Food & Beverages",
+               "Housing & Utilities", "Housing & Utilities", "Housing & Utilities",
+               "Transportation", "Transportation",
+               "Other", "Other", "Other"),
+  item = c("Perishable Foods", "Non-Perishable Foods", "Beverages",
+           "Electricity", "Gas", "Housing Rent",
+           "Motor Fuel", "Transport Services",
+           "Healthcare", "Education", "Communication"),
+  value = c(-2.5, 8.2, 12.5, 6.0, 5.5, 4.5, -8.5, 15.3, 9.8, 14.2, 3.1),
+  stringsAsFactors = FALSE
+)
+
+# Key statistics
+current_policy_rate <- 11.0
+current_headline <- 5.6
+real_rate <- current_policy_rate - current_headline
+inflation_expectations <- 70.0
+```

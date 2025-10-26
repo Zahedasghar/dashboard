@@ -1,7 +1,7 @@
 ---
 title: "Pakistan Economic Observatory"
 #subtitle: "Real-time Economic Analysis & Policy Insights"
-author: "Dr. Zahid Asghar"
+author: "Zahid Asghar"
 affiliation: "School of Economics, Quaid-i-Azam University"
 format: 
   dashboard:

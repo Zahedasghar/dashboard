@@ -1,0 +1,204 @@
+/* Custom styling for enhanced presentation */
+.highlight-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.timeline {
+  border-left: 4px solid #667eea;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.timeline li {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.timeline li::before {
+  content: "●";
+  color: #667eea;
+  font-weight: bold;
+  position: absolute;
+  left: -30px;
+}
+
+.fragment.highlight-current-blue {
+  background-color: #e1f5fe;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.smaller {
+  font-size: 0.8em;
+}
+
+/* Enhanced callout styling with better contrast */
+.callout-note {
+  border-left: 5px solid #2196F3;
+  background-color: #ffffff;
+  color: #1565C0;
+  padding: 15px;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.callout-important {
+  border-left: 5px solid #ff9800;
+  background-color: #ffffff;
+  color: #E65100;
+  padding: 15px;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.callout-tip {
+  border-left: 5px solid #4caf50;
+  background-color: #ffffff;
+  color: #2E7D32;
+  padding: 15px;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+/* Better quote styling */
+blockquote {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #2c3e50;
+  border-left: 5px solid #667eea;
+  padding: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+blockquote p {
+  color: #2c3e50 !important;
+  font-size: 1.1em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Mermaid diagram styling fixes - Force override default colors */
+.mermaid {
+  background-color: white !important;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Force node colors - multiple selectors for compatibility */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon,
+.mermaid g.node rect,
+.mermaid g.node circle,
+.mermaid g.node ellipse,
+.mermaid g.node polygon {
+  fill: #2c3e50 !important;
+  stroke: #34495e !important;
+  stroke-width: 2px !important;
+}
+
+/* Force text colors */
+.mermaid .node .label,
+.mermaid g.node text,
+.mermaid .nodeLabel,
+.mermaid text.nodeText {
+  color: white !important;
+  fill: white !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+
+/* Edge labels */
+.mermaid .edgeLabel,
+.mermaid .edgeLabel rect {
+  background-color: white !important;
+  fill: white !important;
+  color: #2c3e50 !important;
+  font-weight: bold !important;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.mermaid .edgeLabel .label {
+  color: #2c3e50 !important;
+  fill: #2c3e50 !important;
+}
+
+/* Force edge/arrow colors */
+.mermaid .edge-thickness-normal,
+.mermaid path.path,
+.mermaid .flowchart-link {
+  stroke: #34495e !important;
+  stroke-width: 2px !important;
+}
+
+/* Gantt chart specific - Force override */
+.mermaid .section0,
+.mermaid g.section0 rect {
+  fill: #27ae60 !important;
+}
+
+.mermaid .section1,
+.mermaid g.section1 rect {
+  fill: #e74c3c !important;
+}
+
+.mermaid .section2,
+.mermaid g.section2 rect {
+  fill: #f39c12 !important;
+}
+
+.mermaid .task0,
+.mermaid .task1,
+.mermaid .task2,
+.mermaid g.task0 rect,
+.mermaid g.task1 rect,
+.mermaid g.task2 rect {
+  fill: #34495e !important;
+}
+
+.mermaid .taskText0,
+.mermaid .taskText1,
+.mermaid .taskText2,
+.mermaid g.task0 text,
+.mermaid g.task1 text,
+.mermaid g.task2 text {
+  fill: white !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+}
+
+.mermaid .grid .tick {
+  stroke: #7f8c8d !important;
+  stroke-width: 1px !important;
+}
+
+.mermaid .today {
+  stroke: #e74c3c !important;
+  stroke-width: 3px !important;
+}
+
+/* Additional fallback for stubborn default colors */
+.mermaid svg * {
+  font-family: inherit !important;
+}
+
+.mermaid .node0,
+.mermaid .node1,
+.mermaid .node2,
+.mermaid .node3,
+.mermaid .node4,
+.mermaid .node5 {
+  fill: #2c3e50 !important;
+  stroke: #34495e !important;
+}

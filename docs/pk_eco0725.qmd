@@ -1,0 +1,723 @@
+---
+title: "Pakistan Economic Observatory"
+subtitle: "Real-time Economic Analysis & Policy Insights"
+author: "Zahid Asghar"
+affiliation: "School of Economics, Quaid-i-Azam University"
+format: 
+  dashboard:
+    orientation: columns
+    scrolling: true
+    theme: [default, custom.scss]
+    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg"
+    nav-buttons:
+      - icon: github
+        href: https://github.com/zahedasghar
+      - icon: twitter
+        href: https://twitter.com/zahedasghar
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| setup: true
+
+options(future.globals.maxSize = 891289600)
+library(future)
+library(parallel)
+plan(multisession, workers = availableCores() - 1)
+```
+
+```{r}
+#| include: false
+# Load required libraries
+library(tidyverse)
+library(WDI)
+library(plotly)
+library(DT)
+library(kableExtra)
+library(scales)
+library(lubridate)
+library(readxl)
+
+# Set Pakistan country code
+country_code <- "PK"
+
+# Function to safely fetch WDI data
+fetch_wdi_safe <- function(indicator, country = "PK", start = 1990, end = 2024) {
+  tryCatch({
+    wdi_data <- WDI(country = country, indicator = indicator, start = start, end = end)
+    
+    if(ncol(wdi_data) >= 5) {
+      indicator_col <- names(wdi_data)[5]
+      wdi_data <- wdi_data %>%
+        rename(value = all_of(indicator_col)) %>%
+        select(country, iso2c, year, value)
+    }
+    
+    return(wdi_data)
+    
+  }, error = function(e) {
+    tibble(
+      country = "Pakistan",
+      iso2c = "PK",
+      year = 1990:2024,
+      value = NA
+    )
+  })
+}
+
+# Focused indicator list - only essential metrics
+indicators <- list(
+  gdp_growth = "NY.GDP.MKTP.KD.ZG",
+  gdp_per_capita = "NY.GDP.PCAP.CD",
+  inflation = "FP.CPI.TOTL.ZG",
+  unemployment = "SL.UEM.TOTL.ZS",
+  exports = "NE.EXP.GNFS.CD",
+  imports = "NE.IMP.GNFS.CD",
+  current_account = "BN.CAB.XOKA.CD",
+  external_debt = "DT.DOD.DECT.CD",
+  poverty_rate = "SI.POV.NAHC"
+)
+
+# Fetch data with caching
+if(file.exists("pakistan_economic_data_clean.csv")) {
+  economic_data <- read_csv("pakistan_economic_data_clean.csv", show_col_types = FALSE)
+} else {
+  # Fetch each indicator separately for better control
+  economic_data <- map_dfr(names(indicators), function(ind_name) {
+    data <- fetch_wdi_safe(indicators[[ind_name]])
+    data$indicator <- ind_name
+    return(data)
+  })
+  write_csv(economic_data, "pakistan_economic_data_clean.csv")
+}
+
+# Clean, focused data sources
+sbp_data <- tibble(
+  year = 2020:2024,
+  policy_rate = c(7.0, 7.25, 15.0, 22.0, 11.0),
+  inflation_actual = c(10.7, 8.9, 12.2, 29.2, 4.5),
+  forex_reserves = c(20.1, 17.8, 9.8, 13.4, 11.2),
+  exchange_rate = c(160.5, 177.9, 224.8, 283.4, 278.6)
+)
+
+fiscal_data <- tibble(
+  year = 2020:2024,
+  fiscal_deficit = c(-8.1, -7.1, -7.9, -6.6, -5.9),
+  debt_to_gdp = c(89.2, 91.5, 95.1, 92.8, 85.2)
+)
+
+sectoral_data <- tibble(
+  year = 2020:2024,
+  agriculture = c(3.3, 3.5, 4.4, 1.6, 0.56),
+  industry = c(-8.2, 7.8, 7.2, 0.4, 4.77),
+  services = c(1.2, 5.7, 6.1, 0.9, 2.99)
+)
+
+# Current values for key metrics
+current_gdp_growth <- 2.68
+current_inflation <- 4.5
+current_policy_rate <- 11.0
+current_fiscal_deficit <- -5.9
+current_poverty <- 35.1
+
+# Create clean, focused visualizations
+
+# GDP Growth with clear trend
+gdp_plot <- economic_data %>%
+  filter(indicator == "gdp_growth", !is.na(value), year >= 2000) %>%
+  ggplot(aes(x = year, y = value)) +
+  geom_line(color = "#2E8B57", size = 1.2, alpha = 0.8) +
+  geom_point(color = "#2E8B57", size = 2) +
+  geom_hline(yintercept = 5, linetype = "dashed", color = "#666", alpha = 0.7) +
+  annotate("text", x = 2005, y = 5.3, label = "Target: 5%", size = 3.5, color = "#666") +
+  labs(
+    title = "GDP Growth Rate",
+    x = NULL,
+    y = "Growth Rate (%)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", color = "#2C3E50"),
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank()
+  ) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1))
+
+# Inflation vs Policy Rate - clear relationship
+inflation_policy_plot <- sbp_data %>%
+  pivot_longer(cols = c(policy_rate, inflation_actual), 
+               names_to = "indicator", values_to = "value") %>%
+  mutate(indicator = case_when(
+    indicator == "policy_rate" ~ "Policy Rate",
+    indicator == "inflation_actual" ~ "Inflation"
+  )) %>%
+  ggplot(aes(x = year, y = value, color = indicator)) +
+  geom_line(size = 1.3) +
+  geom_point(size = 3) +
+  scale_color_manual(values = c("Policy Rate" = "#3498DB", "Inflation" = "#E74C3C")) +
+  labs(
+    title = "Monetary Policy vs Inflation",
+    x = NULL,
+    y = "Rate (%)",
+    color = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", color = "#2C3E50"),
+    legend.position = "bottom",
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Trade Balance - simple and clear
+trade_plot <- economic_data %>%
+  filter(indicator %in% c("exports", "imports"), !is.na(value), year >= 2010) %>%
+  pivot_wider(names_from = indicator, values_from = value) %>%
+  mutate(trade_balance = exports - imports) %>%
+  ggplot(aes(x = year)) +
+  geom_col(aes(y = trade_balance/1e9), fill = "#E74C3C", alpha = 0.7) +
+  geom_line(aes(y = exports/1e9), color = "#27AE60", size = 1.2) +
+  geom_line(aes(y = imports/1e9), color = "#E74C3C", size = 1.2) +
+  labs(
+    title = "Trade Performance",
+    subtitle = "Green: Exports | Red: Imports | Bars: Trade Balance",
+    x = NULL,
+    y = "Billion USD"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", color = "#2C3E50"),
+    plot.subtitle = element_text(size = 11, color = "#7F8C8D"),
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Sectoral Growth - clean comparison
+sectoral_plot <- sectoral_data %>%
+  pivot_longer(cols = -year, names_to = "sector", values_to = "growth") %>%
+  mutate(sector = str_to_title(sector)) %>%
+  ggplot(aes(x = year, y = growth, fill = sector)) +
+  geom_col(position = "dodge", alpha = 0.8) +
+  scale_fill_manual(values = c("Agriculture" = "#27AE60", 
+                              "Industry" = "#3498DB", 
+                              "Services" = "#F39C12")) +
+  labs(
+    title = "Sectoral Growth Performance",
+    x = NULL,
+    y = "Growth Rate (%)",
+    fill = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", color = "#2C3E50"),
+    legend.position = "bottom",
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank()
+  )
+
+# Fiscal Performance - deficit and debt
+fiscal_plot <- fiscal_data %>%
+  ggplot(aes(x = year)) +
+  geom_col(aes(y = fiscal_deficit), fill = "#E74C3C", alpha = 0.7) +
+  geom_line(aes(y = debt_to_gdp/10), color = "#8E44AD", size = 1.3) +
+  geom_point(aes(y = debt_to_gdp/10), color = "#8E44AD", size = 3) +
+  scale_y_continuous(
+    name = "Fiscal Deficit (% GDP)",
+    sec.axis = sec_axis(~.*10, name = "Debt-to-GDP (%)")
+  ) +
+  labs(
+    title = "Fiscal Performance",
+    x = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", color = "#2C3E50"),
+    axis.title.y.right = element_text(color = "#8E44AD"),
+    axis.text.y.right = element_text(color = "#8E44AD"),
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank()
+  )
+```
+
+# Economic Overview
+
+## Row {height=25%}
+
+```{r}
+#| content: valuebox
+#| title: "GDP Growth"
+list(
+  icon = "trending-up",
+  color = "success",
+  value = "2.68%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Inflation Rate"
+list(
+  icon = "graph-down", 
+  color = "success",
+  value = "4.5%"
+)
+```
+
+
+```{r}
+#| content: valuebox
+#| title: "Fiscal Deficit"
+list(
+  icon = "calculator",
+  color = "warning",
+  value = "5.9%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Poverty Rate (New WB Methodology)"
+list(
+  icon = "people",
+  color = "danger",
+  value = "42.1%"
+)
+```
+
+## Row {height=75%}
+
+### GDP Growth Trend {width=50%}
+```{r}
+#| title: "Long-term GDP Performance"
+ggplotly(gdp_plot, tooltip = c("x", "y")) %>%
+  layout(showlegend = FALSE, height = 400)
+```
+
+### Key Policy Insight {width=50%}
+
+::: {.card}
+::: {.card-header}
+**Current Economic Status**
+:::
+::: {.card-body}
+
+**🎯 Stabilization Achieved**
+- Inflation dramatically reduced from 29.2% to 4.5%
+- Policy rate cut from 22% to 11% supporting recovery
+- GDP growth recovering at 2.68% but below potential
+
+**⚠️ Key Challenges**
+- **Poverty Crisis**: 35.1% of population below poverty line
+- **Growth Gap**: Performance well below 5% target
+- **External Pressure**: Trade deficit and low reserves
+
+**📈 Positive Trends**
+- **Price Stability**: Inflation under control
+- **Industrial Recovery**: Manufacturing showing improvement
+- **Policy Space**: Room for further monetary easing
+
+**🎯 Priority Actions**
+1. **Export Growth**: Boost competitiveness and diversification
+2. **Job Creation**: Address unemployment and underemployment  
+3. **Poverty Reduction**: Targeted social protection programs
+4. **Investment Climate**: Improve ease of doing business
+
+:::
+:::
+
+# Monetary Policy
+
+## Row {height=40%}
+
+### Policy Effectiveness {width=70%}
+```{r}
+#| title: "Monetary Policy vs Inflation"
+ggplotly(inflation_policy_plot, tooltip = c("x", "y", "colour")) %>%
+  layout(height = 320)
+```
+
+### Current Status {width=30%}
+
+```{r}
+#| content: valuebox
+#| title: "Policy Rate"
+list(
+  icon = "bank",
+  color = "primary", 
+  value = "11.0%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Inflation"
+list(
+  icon = "graph-down",
+  color = "success",
+  value = "4.5%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Forex Reserves"
+list(
+  icon = "currency-dollar",
+  color = "danger",
+  value = "$14.2B"
+)
+```
+
+## Row {height=60%}
+
+### Analysis {width=100%}
+
+::: {.card}
+::: {.card-header}
+**Monetary Policy Assessment**
+:::
+::: {.card-body}
+
+**🎯 Policy Success Story**
+The State Bank of Pakistan has achieved remarkable success in controlling inflation, bringing it down from a peak of 29.2% in 2023 to just 4.5% in 2024. This dramatic improvement has created space for monetary easing, with the policy rate reduced from 22% to 11%.
+
+**📊 Key Achievements**
+- **Inflation Control**: Price stability restored after severe inflationary episode
+- **Policy Credibility**: Market confidence in SBP's ability to manage prices
+- **Growth Support**: Lower rates supporting economic recovery
+
+**⚠️ Remaining Challenges**
+- **Reserve Adequacy**: Forex reserves at critically low levels ($11.2B)
+- **Exchange Rate Pressure**: Limited room for further depreciation
+- **External Financing**: Dependence on IMF and bilateral support
+
+**🔮 Outlook**
+With inflation under control, SBP has room for further easing if growth remains sluggish. However, external sector constraints limit policy flexibility.
+
+:::
+:::
+
+# External Sector
+
+## Row {height=40%}
+
+### Trade Performance {width=70%}
+```{r}
+#| title: "Pakistan's Trade Balance"
+ggplotly(trade_plot, tooltip = c("x", "y")) %>%
+  layout(height = 320)
+```
+
+### External Indicators {width=30%}
+
+```{r}
+#| content: valuebox
+#| title: "Trade Deficit"
+list(
+  icon = "arrow-down",
+  color = "danger",
+  value = "Persistent"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Current Account"
+list(
+  icon = "arrow-left-right",
+  color = "warning", 
+  value = "-$0.7B"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Remittances"
+list(
+  icon = "send",
+  color = "success",
+  value = "$30.2B"
+)
+```
+
+## Row {height=60%}
+
+### External Sector Analysis {width=100%}
+
+::: {.card}
+::: {.card-header}
+**External Sector: Critical Vulnerabilities**
+:::
+::: {.card-body}
+
+**🚨 Critical Challenge**
+Pakistan's external sector remains the most pressing economic challenge. With forex reserves at just $11.2 billion, covering less than 2 months of imports, the country faces severe external financing constraints.
+
+**📉 Structural Imbalances**
+- **Persistent Trade Deficit**: Imports consistently exceed exports
+- **Limited Export Base**: Over-dependence on textiles and basic commodities
+- **Energy Import Bill**: Significant drain on foreign exchange
+
+**💪 Stabilizing Factors**
+- **Workers' Remittances**: $30.2B providing crucial foreign exchange
+- **Current Account**: Manageable deficit of $0.7B after recent improvements
+- **Export Recovery**: Some signs of competitiveness improvement
+
+**🎯 Urgent Priorities**
+1. **Export Diversification**: Move beyond textiles to higher value-added products
+2. **Import Substitution**: Reduce dependence on critical imports
+3. **Reserve Building**: Secure additional financing sources
+4. **Competitiveness**: Address structural cost disadvantages
+
+**📊 Bottom Line**
+External sustainability requires immediate attention. Without significant export growth or additional financing, Pakistan faces continued balance of payments pressure.
+
+:::
+:::
+
+# Growth & Development
+
+## Row {height=40%}
+
+### Sectoral Performance {width=70%}
+```{r}
+#| title: "Growth by Economic Sector"
+ggplotly(sectoral_plot, tooltip = c("x", "y", "fill")) %>%
+  layout(height = 320)
+```
+
+### Growth Indicators {width=30%}
+
+```{r}
+#| content: valuebox
+#| title: "Agriculture"
+list(
+  icon = "tree",
+  color = "danger",
+  value = "0.56%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Industry"
+list(
+  icon = "gear",
+  color = "success",
+  value = "4.77%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Services"
+list(
+  icon = "briefcase",
+  color = "success",
+  value = "2.99%"
+)
+```
+
+## Row {height=60%}
+
+### Sectoral Analysis {width=100%}
+
+::: {.card}
+::: {.card-header}
+**Growth Performance: Mixed Sectoral Trends**
+:::
+::: {.card-body}
+
+**🏭 Industrial Leadership**
+Industry leads economic recovery with 4.77% growth, indicating improved manufacturing capacity and business confidence. This sector's performance is crucial for job creation and export growth.
+
+**🌾 Agricultural Concerns**
+Agriculture's weak performance (0.56%) is particularly concerning given its importance for food security, rural livelihoods, and poverty reduction. Weather challenges and productivity issues need urgent attention.
+
+**🏢 Services Stability**
+Services sector maintains steady growth at 2.99%, reflecting domestic demand stabilization. This sector remains the largest contributor to GDP and employment.
+
+**📊 Growth Quality Issues**
+- **Low Overall Growth**: 2.68% GDP growth well below Pakistan's potential
+- **Employment Challenge**: Growth not translating into sufficient job creation
+- **Productivity Gaps**: Need for technological upgrading across sectors
+
+**🎯 Development Priorities**
+1. **Agricultural Modernization**: Technology, irrigation, and crop varieties
+2. **Industrial Competitiveness**: Skills, technology, and infrastructure
+3. **Services Enhancement**: Digital transformation and export potential
+4. **Employment Focus**: Labor-intensive growth strategies
+
+:::
+:::
+
+# Fiscal Policy
+
+## Row {height=40%}
+
+### Fiscal Performance {width=70%}
+```{r}
+#| title: "Government Fiscal Indicators"
+ggplotly(fiscal_plot, tooltip = c("x", "y")) %>%
+  layout(height = 320)
+```
+
+### Fiscal Indicators {width=30%}
+
+```{r}
+#| content: valuebox
+#| title: "Fiscal Deficit"
+list(
+  icon = "calculator",
+  color = "warning",
+  value = "5.9%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Debt-to-GDP"
+list(
+  icon = "graph-down",
+  color = "success",
+  value = "85.2%"
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Tax Revenue"
+list(
+  icon = "receipt",
+  color = "info",
+  value = "13.2%"
+)
+```
+
+## Row {height=60%}
+
+### Fiscal Analysis {width=100%}
+
+::: {.card}
+::: {.card-header}
+**Fiscal Policy: Consolidation Progress**
+:::
+::: {.card-body}
+
+**📈 Consolidation Success**
+The government has made significant progress in fiscal consolidation, reducing the deficit from 6.6% to 5.9% of GDP while maintaining essential spending. Debt-to-GDP ratio has also improved to 85.2%.
+
+**💰 Revenue Performance**
+- **Tax Collection**: Improved efficiency in tax administration
+- **Revenue Growth**: 12.7% increase despite economic challenges
+- **Tax-to-GDP**: Still low at 13.2%, indicating potential for expansion
+
+**🎯 Expenditure Management**
+- **Current Spending**: Controlled while protecting social programs
+- **Development Budget**: Maintained at adequate levels for infrastructure
+- **Debt Servicing**: Major portion of budget allocated to debt payments
+
+**⚖️ Fiscal Sustainability**
+While progress is evident, Pakistan's fiscal position remains constrained by:
+- **High Debt Burden**: 85% of GDP limits fiscal space
+- **Low Tax Base**: Narrow tax net reduces revenue potential
+- **Subsidy Pressure**: Energy and commodity subsidies strain budget
+
+**🎯 Reform Priorities**
+1. **Tax Base Expansion**: Bring informal sector into tax net
+2. **Expenditure Efficiency**: Better targeting of subsidies and transfers
+3. **Debt Management**: Restructure and optimize debt portfolio
+4. **Revenue Diversification**: Reduce dependence on indirect taxes
+
+:::
+:::
+
+# Key Insights
+
+## Row {height=100%}
+
+### Economic Summary {width=60%}
+
+::: {.card}
+::: {.card-header}
+**Pakistan Economic Assessment: Current Status & Outlook**
+:::
+::: {.card-body}
+
+**🎯 Current Achievement: Price Stability**
+Pakistan has successfully achieved price stability with inflation dropping dramatically from 29.2% to 4.5%. This represents the most significant policy success and provides the foundation for economic recovery.
+
+**📊 Mixed Growth Performance**
+- **GDP Growth**: 2.68% indicates recovery but remains below potential
+- **Sectoral Imbalance**: Industry leading (4.77%) while agriculture lags (0.56%)
+- **Employment Challenge**: Growth not sufficient for job creation needs
+
+**⚠️ Critical Vulnerabilities**
+1. **External Sector**: $11.2B reserves inadequate for import coverage
+2. **Poverty Crisis**: 35.1% population below poverty line
+3. **Trade Deficit**: Persistent structural imbalance
+4. **Low Growth**: Below required levels for development needs
+
+**💪 Stabilizing Factors**
+1. **Monetary Policy**: Effective inflation control and policy credibility
+2. **Fiscal Discipline**: Deficit reduction and debt management
+3. **Remittances**: $30.2B providing external balance support
+4. **Industrial Recovery**: Manufacturing showing improvement
+
+**🎯 Strategic Priorities**
+1. **Export Growth**: Diversification and competitiveness enhancement
+2. **Poverty Reduction**: Targeted social protection and job creation
+3. **Agricultural Revival**: Productivity and climate resilience
+4. **Reserve Building**: External financing and export promotion
+
+**🔮 Outlook**
+Pakistan has achieved stabilization but faces the challenge of transitioning to sustainable, inclusive growth. Success requires maintaining reform momentum while addressing structural imbalances.
+
+:::
+:::
+
+### Key Metrics {width=40%}
+
+::: {.card}
+::: {.card-header}
+**Dashboard Summary**
+:::
+::: {.card-body}
+
+**📈 Performance Scorecard**
+
+| **Indicator** | **Status** | **Trend** |
+|---------------|------------|-----------|
+| GDP Growth | 🟡 2.68% | ⬆️ Recovering |
+| Inflation | 🟢 4.5% | ⬇️ Controlled |
+| Fiscal Deficit | 🟡 5.9% | ⬆️ Improving |
+| Poverty | 🔴 35.1% | ⬇️ High |
+| Reserves | 🔴 $11.2B | ⬇️ Critical |
+
+**🎯 Policy Effectiveness**
+- **Monetary Policy**: ⭐⭐⭐⭐⭐ Excellent
+- **Fiscal Policy**: ⭐⭐⭐⭐ Good Progress  
+- **Trade Policy**: ⭐⭐ Needs Improvement
+- **Social Policy**: ⭐⭐ Requires Focus
+
+**📊 Data Sources**
+- **State Bank of Pakistan**: Monetary & external data
+- **Ministry of Finance**: Fiscal indicators
+- **Pakistan Bureau of Statistics**: Growth & inflation
+- **World Bank**: Development indicators
+
+**🔄 Updates**
+- **Frequency**: Monthly for key indicators
+- **Last Updated**: `r Sys.Date()`
+- **Next Review**: Quarterly analysis
+
+---
+*Created by Prof. Zahid Asghar | QAU Economics*
+
+:::
+:::

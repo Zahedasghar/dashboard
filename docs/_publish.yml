@@ -1,0 +1,8 @@
+- source: pk_eco.qmd
+  quarto-pub:
+    - id: 16fd6804-1513-4367-aa0a-69e559019a4d
+      url: https://zahid.quarto.pub/pakistan-economic-observatory
+- source: pak_eco25.qmd
+  quarto-pub:
+    - id: 96f2de30-db97-4fc6-8c9f-54549d7cf140
+      url: https://zahid.quarto.pub/pakistan-economy-overview

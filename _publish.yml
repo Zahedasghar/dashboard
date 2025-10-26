@@ -1,0 +1,4 @@
+- source: pk_eco.qmd
+  quarto-pub:
+    - id: 87f32cdf-9476-4f25-8c38-4c0d425b6509
+      url: https://zahid.quarto.pub/pakistan-economy-dashboard

@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Zahid Asghar">
+<meta name="dcterms.date" content="2025-08-02">
+
+<title>Pakistan Economic Observatory</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="pak_eco25_files/libs/clipboard/clipboard.min.js"></script>
+<script src="pak_eco25_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="pak_eco25_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="pak_eco25_files/libs/quarto-html/popper.min.js"></script>
+<script src="pak_eco25_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="pak_eco25_files/libs/quarto-html/anchor.min.js"></script>
+<link href="pak_eco25_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="pak_eco25_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="pak_eco25_files/libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="pak_eco25_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="pak_eco25_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="pak_eco25_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="pak_eco25_files/libs/bootstrap/bootstrap-777acbec273f25a41ea8ddffd463bdf9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="pak_eco25_files/libs/bootstrap/bootstrap-dark-777acbec273f25a41ea8ddffd463bdf9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="pak_eco25_files/libs/bootstrap/bootstrap-777acbec273f25a41ea8ddffd463bdf9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="pak_eco25_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="pak_eco25_files/libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="pak_eco25_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="pak_eco25_files/libs/quarto-dashboard/components.js"></script>
+
+<link href="pak_eco25_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="pak_eco25_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="pak_eco25_files/libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="pak_eco25_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="pak_eco25_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="pak_eco25_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="pak_eco25_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="pak_eco25_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="pak_eco25_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-sidebar fullcontent quarto-light">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg" alt="" class="navbar-logo d-inline-block"></a>
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Pakistan Economic Observatory</a></div>
+        <div class="navbar-subtitle">Real-time Economic Analysis &amp; Policy Insights</div>
+        <div class="navbar-author">Zahid Asghar</div>
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-economic-dashboard" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#economic-dashboard" data-scrolling="true" href="#economic-dashboard" aria-controls="economic-dashboard" aria-selected="true"><span class="nav-link-text">Economic Dashboard</span></a></li><li class="nav-item" role="presentation"><a id="tab-monetary-inflation" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#monetary-inflation" data-scrolling="true" href="#monetary-inflation" aria-controls="monetary-inflation" aria-selected="false"><span class="nav-link-text">Monetary &amp; Inflation</span></a></li><li class="nav-item" role="presentation"><a id="tab-external-sector" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#external-sector" data-scrolling="true" href="#external-sector" aria-controls="external-sector" aria-selected="false"><span class="nav-link-text">External Sector</span></a></li><li class="nav-item" role="presentation"><a id="tab-fiscal-analysis" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#fiscal-analysis" data-scrolling="true" href="#fiscal-analysis" aria-controls="fiscal-analysis" aria-selected="false"><span class="nav-link-text">Fiscal Analysis</span></a></li><li class="nav-item" role="presentation"><a id="tab-social-development" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#social-development" data-scrolling="true" href="#social-development" aria-controls="social-development" aria-selected="false"><span class="nav-link-text">Social Development</span></a></li><li class="nav-item" role="presentation"><a id="tab-policy-dashboard" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#policy-dashboard" data-scrolling="true" href="#policy-dashboard" aria-controls="policy-dashboard" aria-selected="false"><span class="nav-link-text">Policy Dashboard</span></a></li><li class="nav-item" role="presentation"><a id="tab-about" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#about" data-scrolling="true" href="#about" aria-controls="about" aria-selected="false"><span class="nav-link-text">About</span></a></li></ul><div class="quarto-dashboard-links"><a class="quarto-dashboard-link" href="https://github.com/zahedasghar"><i class="bi bi-github"></i></a><a class="quarto-dashboard-link" href="https://twitter.com/zahedasghar"><i class="bi bi-twitter"></i></a><a class="quarto-dashboard-link" href="https://linkedin.com/in/zahedasghar"><i class="bi bi-linkedin"></i></a></div></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container dashboard-scrolling quarto-dashboard-pages dashboard-sidebar-container">  
+
+<div class="cell bslib-grid-item html-fill-item">
+<style type="text/css">
+/* Custom CSS for better styling */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.valuebox {
+  border-radius: 8px;
+}
+
+.alert {
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.alert-success {
+  border-left-color: #27AE60;
+  background-color: #f0f9f0;
+}
+
+.alert-warning {
+  border-left-color: #F39C12;
+  background-color: #fef9e7;
+}
+
+.alert-danger {
+  border-left-color: #E74C3C;
+  background-color: #fef0f0;
+}
+</style>
+</div>
+<div class="bslib-sidebar-layout html-fill-item html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
+<div class="tab-content bslib-grid html-fill-item html-fill-container" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="economic-dashboard" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-economic-dashboard">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="25%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-warning showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="trending-up" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-trending-up"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+GDP Growth
+</p>
+<p class="value-box-value">
+2.68%
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-success showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="graph-down" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-graph-down"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Inflation Rate
+</p>
+<p class="value-box-value">
+4.5%
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-danger showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="calculator" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-calculator"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Fiscal Balance
+</p>
+<p class="value-box-value">
+-5.9% GDP
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-danger showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="people" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-people"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Poverty Rate
+</p>
+<p class="value-box-value">
+35.1%
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div><div class="html-fill-item html-fill-container bslib-grid" data-height="50%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Comparative GDP Performance" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Comparative GDP Performance
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-2bba6a98c6d23967dfcb" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-2bba6a98c6d23967dfcb">{"x":{"data":[{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[5.5717881853312203,6.4643791249772802,6.5214587790644298,6.0136056583434403,6.0610593588494996,6.5526398781619699,7.1134782127009304,6.5902499979405702,7.3194126301413602,7.8819151511772203,3.4480175512244502,6.9386791244244499,7.0998287757515799,5.7751123700788902,4.2232591125016103],"text":["year: 2010<br />value:  5.57178819<br />country: Bangladesh","year: 2011<br />value:  6.46437912<br />country: Bangladesh","year: 2012<br />value:  6.52145878<br />country: Bangladesh","year: 2013<br />value:  6.01360566<br />country: Bangladesh","year: 2014<br />value:  6.06105936<br />country: Bangladesh","year: 2015<br />value:  6.55263988<br />country: Bangladesh","year: 2016<br />value:  7.11347821<br />country: Bangladesh","year: 2017<br />value:  6.59025000<br />country: Bangladesh","year: 2018<br />value:  7.31941263<br />country: Bangladesh","year: 2019<br />value:  7.88191515<br />country: Bangladesh","year: 2020<br />value:  3.44801755<br />country: Bangladesh","year: 2021<br />value:  6.93867912<br />country: Bangladesh","year: 2022<br />value:  7.09982878<br />country: Bangladesh","year: 2023<br />value:  5.77511237<br />country: Bangladesh","year: 2024<br />value:  4.22325911<br />country: Bangladesh"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(68,1,84,0.8)","dash":"solid"},"hoveron":"points","name":"Bangladesh","legendgroup":"Bangladesh","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(68,1,84,1)"}},"frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[8.4975847022123503,5.2413161993769499,5.4563875516658698,6.3861064009482504,7.4102276050885401,7.9962537857147096,8.2563055017908606,6.7953834189791102,6.4538513449776902,3.87143694070356,-5.7777247068680104,9.6895924919287495,7.6093649776889496,9.1907549302834504,6.4842236303375698],"text":["year: 2010<br />value:  8.49758470<br />country: India","year: 2011<br />value:  5.24131620<br />country: India","year: 2012<br />value:  5.45638755<br />country: India","year: 2013<br />value:  6.38610640<br />country: India","year: 2014<br />value:  7.41022761<br />country: India","year: 2015<br />value:  7.99625379<br />country: India","year: 2016<br />value:  8.25630550<br />country: India","year: 2017<br />value:  6.79538342<br />country: India","year: 2018<br />value:  6.45385134<br />country: India","year: 2019<br />value:  3.87143694<br />country: India","year: 2020<br />value: -5.77772471<br />country: India","year: 2021<br />value:  9.68959249<br />country: India","year: 2022<br />value:  7.60936498<br />country: India","year: 2023<br />value:  9.19075493<br />country: India","year: 2024<br />value:  6.48422363<br />country: India"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(59,82,139,0.8)","dash":"solid"},"hoveron":"points","name":"India","legendgroup":"India","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(59,82,139,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(59,82,139,1)"}},"frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[1.5017175215288301,2.6801168542170499,3.0275839108862899,4.3668650497838701,4.1164281716142197,4.2179420957250597,6.5738382851104298,4.4326259068397498,6.1517026109951898,2.49763692943365,-1.2740874433870899,6.51388575852702,4.7781068690358,-0.039838971667350599,3.2347844321014798],"text":["year: 2010<br />value:  1.50171752<br />country: Pakistan","year: 2011<br />value:  2.68011685<br />country: Pakistan","year: 2012<br />value:  3.02758391<br />country: Pakistan","year: 2013<br />value:  4.36686505<br />country: Pakistan","year: 2014<br />value:  4.11642817<br />country: Pakistan","year: 2015<br />value:  4.21794210<br />country: Pakistan","year: 2016<br />value:  6.57383829<br />country: Pakistan","year: 2017<br />value:  4.43262591<br />country: Pakistan","year: 2018<br />value:  6.15170261<br />country: Pakistan","year: 2019<br />value:  2.49763693<br />country: Pakistan","year: 2020<br />value: -1.27408744<br />country: Pakistan","year: 2021<br />value:  6.51388576<br />country: Pakistan","year: 2022<br />value:  4.77810687<br />country: Pakistan","year: 2023<br />value: -0.03983897<br />country: Pakistan","year: 2024<br />value:  3.23478443<br />country: Pakistan"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(33,144,140,0.8)","dash":"solid"},"hoveron":"points","name":"Pakistan","legendgroup":"Pakistan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(33,144,140,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(33,144,140,1)"}},"frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[8.0159673704046401,8.6694830116057098,8.6321813802403806,4.0517463292691103,6.3779788928939896,4.2059554767764702,5.0536248899443601,6.4606812706575303,2.3100842554584502,-0.22048388683127501,-4.6245150374950201,4.2074764951157002,-7.3491930130674499,-2.3298481898333998,5.0087193095715898],"text":["year: 2010<br />value:  8.01596737<br />country: Sri Lanka","year: 2011<br />value:  8.66948301<br />country: Sri Lanka","year: 2012<br />value:  8.63218138<br />country: Sri Lanka","year: 2013<br />value:  4.05174633<br />country: Sri Lanka","year: 2014<br />value:  6.37797889<br />country: Sri Lanka","year: 2015<br />value:  4.20595548<br />country: Sri Lanka","year: 2016<br />value:  5.05362489<br />country: Sri Lanka","year: 2017<br />value:  6.46068127<br />country: Sri Lanka","year: 2018<br />value:  2.31008426<br />country: Sri Lanka","year: 2019<br />value: -0.22048389<br />country: Sri Lanka","year: 2020<br />value: -4.62451504<br />country: Sri Lanka","year: 2021<br />value:  4.20747650<br />country: Sri Lanka","year: 2022<br />value: -7.34919301<br />country: Sri Lanka","year: 2023<br />value: -2.32984819<br />country: Sri Lanka","year: 2024<br />value:  5.00871931<br />country: Sri Lanka"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(93,200,99,0.8)","dash":"solid"},"hoveron":"points","name":"Sri Lanka","legendgroup":"Sri Lanka","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(93,200,99,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,200,99,1)"}},"frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[6.4232448223948202,6.4131688968168303,5.5045447041189002,5.55351081026072,6.4222431211856703,6.9871543059861096,6.6900089266042402,6.9401903735920598,7.46500685572751,7.35926270105006,2.8654132091227198,2.5537285264813101,8.5375004675578801,5.0650239145507499,7.0911874663397496],"text":["year: 2010<br />value:  6.42324482<br />country: Viet Nam","year: 2011<br />value:  6.41316890<br />country: Viet Nam","year: 2012<br />value:  5.50454470<br />country: Viet Nam","year: 2013<br />value:  5.55351081<br />country: Viet Nam","year: 2014<br />value:  6.42224312<br />country: Viet Nam","year: 2015<br />value:  6.98715431<br />country: Viet Nam","year: 2016<br />value:  6.69000893<br />country: Viet Nam","year: 2017<br />value:  6.94019037<br />country: Viet Nam","year: 2018<br />value:  7.46500686<br />country: Viet Nam","year: 2019<br />value:  7.35926270<br />country: Viet Nam","year: 2020<br />value:  2.86541321<br />country: Viet Nam","year: 2021<br />value:  2.55372853<br />country: Viet Nam","year: 2022<br />value:  8.53750047<br />country: Viet Nam","year: 2023<br />value:  5.06502391<br />country: Viet Nam","year: 2024<br />value:  7.09118747<br />country: Viet Nam"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(253,231,37,0.8)","dash":"solid"},"hoveron":"points","name":"Viet Nam","legendgroup":"Viet Nam","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(253,231,37,1)"}},"frame":null},{"x":[2009.3,2024.7],"y":[5,5],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(102,102,102,0.5)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":28.625985886259862,"l":45.496056454960573},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> GDP Growth Rate Comparison <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2009.3,2024.7],"tickmode":"array","ticktext":["2010","2015","2020"],"tickvals":[2010,2015,2020],"categoryorder":"array","categoryarray":["2010","2015","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-8.2011322883172593,10.54153176717856],"tickmode":"array","ticktext":["-5%","0%","5%","10%"],"tickvals":[-5,0,5,10.000000000000002],"categoryorder":"array","categoryarray":["-5%","0%","5%","10%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Growth Rate (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Country","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"orientation":"h","y":-0.20000000000000001},"hovermode":"x unified","barmode":"relative","height":400},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c72e072aa":{"x":{},"y":{},"colour":{},"type":"scatter"},"417c19e8478a":{"x":{},"y":{},"colour":{}},"417c4f015836":{"yintercept":{}}},"cur_data":"417c72e072aa","visdat":{"417c72e072aa":["function (y) ","x"],"417c19e8478a":["function (y) ","x"],"417c4f015836":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Pakistan Economic Momentum" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Pakistan Economic Momentum
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-446b9d7ecd1787f6c025" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-446b9d7ecd1787f6c025">{"x":{"data":[{"x":[2014.991,2015,2015.009,2015.991,2016,2016.009,2016.991,2017,2017.009,2017.991,2018,2018.009,2018.991,2019,2019.009,2019.991,2020,2020.009,2020.991,2021,2021.009,2021.991,2022,2022.009,2022.991,2023,2023.009,2023.991,2024,2024.009,2024.009,2024.009,2024,2023.991,2023.009,2023,2022.991,2022.009,2022,2021.991,2021.009,2021,2020.991,2020.009,2020,2019.991,2019.009,2019,2018.991,2018.009,2018,2017.991,2017.009,2017,2016.991,2016.009,2016,2015.991,2015.009,2015,2014.991,2014.991],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3.2347844321014798,3.2053128214675128,-0.010367361033383472,-0.039838971667350599,0.0035225408990475771,4.7347453564694018,4.7781068690358,4.7937288790412467,6.4982637485215742,6.51388575852702,6.4437939997096798,-1.2039956845697497,-1.2740874433870899,-1.2401419240316485,2.4636914100782086,2.49763692943365,2.530523520567757,6.1188160198610824,6.1517026109951898,6.1362309206577663,4.4480975971771741,4.4326259068397498,4.4518968182442169,6.5545673737059627,6.5738382851104298,6.5526352194059267,4.2391451614295628,4.2179420957250597,0,0],"text":"year: 2015<br />value: 4.217942","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(52,152,219,0.3)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[4.2179420957250597,6.5738382851104298,4.4326259068397498,6.1517026109951898,2.49763692943365,-1.2740874433870899,6.51388575852702,4.7781068690358,-0.039838971667350599,3.2347844321014798],"text":["year: 2015<br />value:  4.21794210","year: 2016<br />value:  6.57383829","year: 2017<br />value:  4.43262591","year: 2018<br />value:  6.15170261","year: 2019<br />value:  2.49763693","year: 2020<br />value: -1.27408744","year: 2021<br />value:  6.51388576","year: 2022<br />value:  4.77810687","year: 2023<br />value: -0.03983897","year: 2024<br />value:  3.23478443"],"type":"scatter","mode":"lines+markers","line":{"width":5.6692913385826778,"color":"rgba(41,128,185,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(41,128,185,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(41,128,185,1)"}},"frame":null},{"x":[2014.5400999999999,2024.4599000000001],"y":[0,0],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(231,76,60,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":28.625985886259862,"l":45.496056454960573},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> GDP Growth Trend <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2014.5400999999999,2024.4599000000001],"tickmode":"array","ticktext":["2015.0","2017.5","2020.0","2022.5"],"tickvals":[2015,2017.5,2020,2022.5],"categoryorder":"array","categoryarray":["2015.0","2017.5","2020.0","2022.5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.6664837298119659,6.9662345715353062],"tickmode":"array","ticktext":["0.0","2.5","5.0"],"tickvals":[0,2.5,5],"categoryorder":"array","categoryarray":["0.0","2.5","5.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Growth Rate (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","height":400},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c8673774":{"x":{},"y":{},"type":"scatter"},"417c74b4fef":{"x":{},"y":{}},"417c6eb9494":{"x":{},"y":{}},"417c214a1185":{"yintercept":{}}},"cur_data":"417c8673774","visdat":{"417c8673774":["function (y) ","x"],"417c74b4fef":["function (y) ","x"],"417c6eb9494":["function (y) ","x"],"417c214a1185":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" data-height="25%" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="100%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="alert alert-info html-fill-item html-fill-container">
+<strong>🎯 Current Economic Status</strong>
+<p>Pakistan’s economy shows <strong>mixed signals</strong> with GDP growth at <strong>2.68%</strong> - below the regional average but showing recovery. Inflation at <strong>4.5%</strong> has been successfully controlled through tight monetary policy. The fiscal deficit of <strong>5.9% of GDP</strong> remains a concern, while poverty affects <strong>35.1%</strong> of the population.</p>
+<p><strong>Key Challenges:</strong> External sector vulnerabilities | Low growth momentum | High poverty levels | Fiscal constraints</p>
+<p><strong>Positive Trends:</strong> Inflation control | Industrial recovery | Export competitiveness improving | Remittance inflows stable</p>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="monetary-inflation" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-monetary-inflation">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="40%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Inflation Trajectory &amp; Forecast" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Inflation Trajectory &amp; Forecast
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-6d03551453fa73856438" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-6d03551453fa73856438">{"x":{"data":[{"x":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[4.3666645129168096,3.1482614459061802,3.2903447261315302,2.91413470059479,7.4446246934273903,9.0633273703041706,7.9210844005878904,7.5986844105077402,20.286121092955401,13.647765063976101,12.9388705634889,11.9160927116277,9.6823518605568406,7.6921561189956504,7.1893840284702799,2.5293281725422898,3.7651191635657999,4.0853736803260796,5.0780572586891699,10.5783618004555,9.7399931389815499,9.4962105612494696,19.873859964665499,30.768128065700498,12.632531853045201],"text":["year: 2000<br />value:  4.366665","year: 2001<br />value:  3.148261","year: 2002<br />value:  3.290345","year: 2003<br />value:  2.914135","year: 2004<br />value:  7.444625","year: 2005<br />value:  9.063327","year: 2006<br />value:  7.921084","year: 2007<br />value:  7.598684","year: 2008<br />value: 20.286121","year: 2009<br />value: 13.647765","year: 2010<br />value: 12.938871","year: 2011<br />value: 11.916093","year: 2012<br />value:  9.682352","year: 2013<br />value:  7.692156","year: 2014<br />value:  7.189384","year: 2015<br />value:  2.529328","year: 2016<br />value:  3.765119","year: 2017<br />value:  4.085374","year: 2018<br />value:  5.078057","year: 2019<br />value: 10.578362","year: 2020<br />value:  9.739993","year: 2021<br />value:  9.496211","year: 2022<br />value: 19.873860","year: 2023<br />value: 30.768128","year: 2024<br />value: 12.632532"],"type":"scatter","mode":"lines+markers","line":{"width":5.6692913385826778,"color":"rgba(231,76,60,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(231,76,60,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,76,60,1)"}},"frame":null},{"x":[2025,2026,2027,2027,2027,2026,2025,2025],"y":[0.53681728821030461,-1.8299753609202796,-2.7331889664887932,-2.7331889664887932,22.703168490562053,22.691474215183341,21.909824376748848,0.53681728821030461],"text":["year: 2025<br />value: 11.22332<br />lower:  0.5368173<br />upper: 21.90982","year: 2026<br />value: 10.43075<br />lower: -1.8299754<br />upper: 22.69147","year: 2027<br />value:  9.98499<br />lower: -2.7331890<br />upper: 22.70317","year: 2027<br />value:  9.98499<br />lower: -2.7331890<br />upper: 22.70317","year: 2027<br />value:  9.98499<br />lower: -2.7331890<br />upper: 22.70317","year: 2026<br />value: 10.43075<br />lower: -1.8299754<br />upper: 22.69147","year: 2025<br />value: 11.22332<br />lower:  0.5368173<br />upper: 21.90982","year: 2025<br />value: 11.22332<br />lower:  0.5368173<br />upper: 21.90982"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(52,152,219,0.2)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2025,2026,2027],"y":[11.223320832479576,10.430749427131531,9.9849897620366299],"text":["year: 2025<br />value: 11.22332","year: 2026<br />value: 10.43075","year: 2027<br />value:  9.98499"],"type":"scatter","mode":"lines+markers","line":{"width":5.6692913385826778,"color":"rgba(52,152,219,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(52,152,219,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(52,152,219,1)"}},"frame":null},{"x":[2024.5,2024.5,2027.5,2027.5,2024.5],"y":[null,null,null,null,null],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(190,190,190,0.1)","hoveron":"fills","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2026],"y":[24.703168490562053],"text":"Forecast","hovertext":"x: 2026<br />y: 24.70317","textfont":{"size":15.118110236220474,"color":"rgba(52,152,219,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":28.625985886259862,"l":38.854296388542977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Inflation: Historical & Forecast <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1998.625,2028.875],"tickmode":"array","ticktext":["2000","2010","2020"],"tickvals":[2000,2010,2020],"categoryorder":"array","categoryarray":["2000","2010","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.4082548180982579,32.443193917309962],"tickmode":"array","ticktext":["0","10","20","30"],"tickvals":[0,10,20,30],"categoryorder":"array","categoryarray":["0","10","20","30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Inflation Rate (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","height":350},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c5e5572eb":{"x":{},"y":{},"type":"scatter"},"417c3c4935fc":{"x":{},"y":{}},"417c45ed63af":{"x":{},"y":{},"ymin":{},"ymax":{}},"417c139d5265":{"x":{},"y":{}},"417c2bc81a1d":{"x":{},"y":{}},"417c6c933603":{"xmin":{},"xmax":{},"ymin":{},"ymax":{}},"417cbab5779":{"x":{},"y":{}}},"cur_data":"417c5e5572eb","visdat":{"417c5e5572eb":["function (y) ","x"],"417c3c4935fc":["function (y) ","x"],"417c45ed63af":["function (y) ","x"],"417c139d5265":["function (y) ","x"],"417c2bc81a1d":["function (y) ","x"],"417c6c933603":["function (y) ","x"],"417cbab5779":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Monetary Policy Assessment</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Current Policy Rate:</strong> 11.0% (↓ from 22%)</p>
+<p><strong>Policy Effectiveness:</strong> - ✅ Inflation successfully brought under control - ✅ Real interest rates now positive - ✅ Exchange rate relatively stable - ⚠️ Credit growth remains sluggish</p>
+<p><strong>Forecast Insights:</strong> - Expected inflation: <strong>4-6%</strong> (model-based) - Policy space: Room for further easing - Risk factors: Energy prices, fiscal slippage</p>
+<p><strong>Recommendations:</strong> 1. Gradual rate cuts to support growth 2. Monitor core inflation closely 3. Maintain exchange rate flexibility 4. Enhance transmission mechanism</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" data-height="60%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Inflation: Pakistan vs Peers" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Inflation: Pakistan vs Peers
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-f20ac6b71e05ba075e3d" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-f20ac6b71e05ba075e3d">{"x":{"data":[{"orientation":"v","width":0.89999999999999991,"base":-0.42936004906973002,"x":[1],"y":[0.42936004906973002],"text":"country: Sri Lanka<br />latest_inflation: -0.429360","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(128,172,79,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000013,"base":0,"x":[2],"y":[3.62109273885843],"text":"country: Viet Nam<br />latest_inflation:  3.621093","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(217,162,40,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000036,"base":0,"x":[3],"y":[4.9530355097365604],"text":"country: India<br />latest_inflation:  4.953036","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(242,156,19,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000036,"base":0,"x":[4],"y":[10.4657482763412],"text":"country: Bangladesh<br />latest_inflation: 10.465748","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(235,102,53,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000036,"base":0,"x":[5],"y":[12.632531853045201],"text":"country: Pakistan<br />latest_inflation: 12.632532","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(231,76,60,0.8)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4,3,5,1,2],"y":[10.4657482763412,4.9530355097365604,12.632531853045201,-0.42936004906973002,3.62109273885843],"text":["10.5%","5%","12.6%","-0.4%","3.6%"],"hovertext":["country: Bangladesh<br />latest_inflation: 10.465748","country: India<br />latest_inflation:  4.953036","country: Pakistan<br />latest_inflation: 12.632532","country: Sri Lanka<br />latest_inflation: -0.429360","country: Viet Nam<br />latest_inflation:  3.621093"],"textfont":{"size":13.228346456692915,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":50.924062391378655,"l":38.854296388542977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Latest Inflation Rates <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Sri Lanka","Viet Nam","India","Bangladesh","Pakistan"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Sri Lanka","Viet Nam","India","Bangladesh","Pakistan"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.0824546441754768,13.285626448150948],"tickmode":"array","ticktext":["0","5","10"],"tickvals":[0,5,10],"categoryorder":"array","categoryarray":["0","5","10"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Inflation Rate (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","height":450},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417cfc1d53":{"x":{},"y":{},"fill":{},"type":"bar"},"417c737a24b2":{"x":{},"y":{},"fill":{},"label":{}}},"cur_data":"417cfc1d53","visdat":{"417cfc1d53":["function (y) ","x"],"417c737a24b2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Inflation Drivers &amp; Outlook</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Main Contributors to Inflation:</strong></p>
+<p>📈 <strong>Food Inflation</strong> (40% weight) - Volatile due to supply shocks - Climate impact on agriculture - Import dependency for edibles</p>
+<p>⚡ <strong>Energy Prices</strong> (25% weight) - Global oil price transmission - Electricity tariff adjustments - Gas price revisions</p>
+<p>🏠 <strong>Housing &amp; Utilities</strong> (20% weight) - Rental market pressures - Construction material costs - Urban demand growth</p>
+<p>💱 <strong>Exchange Rate Pass-through</strong> - Import price effects - Delayed transmission (3-6 months) - Structural import dependency</p>
+<p><strong>Policy Implications:</strong> - Supply-side measures crucial - Strategic reserves needed - Import substitution priority - Agricultural productivity focus</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="external-sector" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-external-sector">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="40%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="70%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="External Sector Dynamics" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+External Sector Dynamics
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-da7deccd9990681d3322" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-da7deccd9990681d3322">{"x":{"data":[{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2023,2023,2022,2021,2020,2019,2018,2017,2016,2015,2015],"y":[0,0,0,0,0,0,0,0,0,0,9.8000000000000007,10.1,9.4000000000000004,8.5999999999999996,9.0999999999999996,8.8000000000000007,9.1999999999999993,8.9000000000000004,8.5,0],"text":["year: 2015<br />ymin: 0<br />exports_gdp:  8.5","year: 2016<br />ymin: 0<br />exports_gdp:  8.9","year: 2017<br />ymin: 0<br />exports_gdp:  9.2","year: 2018<br />ymin: 0<br />exports_gdp:  8.8","year: 2019<br />ymin: 0<br />exports_gdp:  9.1","year: 2020<br />ymin: 0<br />exports_gdp:  8.6","year: 2021<br />ymin: 0<br />exports_gdp:  9.4","year: 2022<br />ymin: 0<br />exports_gdp: 10.1","year: 2023<br />ymin: 0<br />exports_gdp:  9.8","year: 2023<br />ymin: 0<br />exports_gdp:  9.8","year: 2023<br />ymin: 0<br />exports_gdp:  9.8","year: 2022<br />ymin: 0<br />exports_gdp: 10.1","year: 2021<br />ymin: 0<br />exports_gdp:  9.4","year: 2020<br />ymin: 0<br />exports_gdp:  8.6","year: 2019<br />ymin: 0<br />exports_gdp:  9.1","year: 2018<br />ymin: 0<br />exports_gdp:  8.8","year: 2017<br />ymin: 0<br />exports_gdp:  9.2","year: 2016<br />ymin: 0<br />exports_gdp:  8.9","year: 2015<br />ymin: 0<br />exports_gdp:  8.5","year: 2015<br />ymin: 0<br />exports_gdp:  8.5"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(39,174,96,0.3)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2023,2023,2022,2021,2020,2019,2018,2017,2016,2015,2015],"y":[8.5,8.9000000000000004,9.1999999999999993,8.8000000000000007,9.0999999999999996,8.5999999999999996,9.4000000000000004,10.1,9.8000000000000007,9.8000000000000007,20.5,21.199999999999999,19.899999999999999,17.800000000000001,19.5,18.899999999999999,20.100000000000001,19.800000000000001,19.199999999999999,8.5],"text":["year: 2015<br />exports_gdp:  8.5<br />imports_gdp: 19.2","year: 2016<br />exports_gdp:  8.9<br />imports_gdp: 19.8","year: 2017<br />exports_gdp:  9.2<br />imports_gdp: 20.1","year: 2018<br />exports_gdp:  8.8<br />imports_gdp: 18.9","year: 2019<br />exports_gdp:  9.1<br />imports_gdp: 19.5","year: 2020<br />exports_gdp:  8.6<br />imports_gdp: 17.8","year: 2021<br />exports_gdp:  9.4<br />imports_gdp: 19.9","year: 2022<br />exports_gdp: 10.1<br />imports_gdp: 21.2","year: 2023<br />exports_gdp:  9.8<br />imports_gdp: 20.5","year: 2023<br />exports_gdp:  9.8<br />imports_gdp: 20.5","year: 2023<br />exports_gdp:  9.8<br />imports_gdp: 20.5","year: 2022<br />exports_gdp: 10.1<br />imports_gdp: 21.2","year: 2021<br />exports_gdp:  9.4<br />imports_gdp: 19.9","year: 2020<br />exports_gdp:  8.6<br />imports_gdp: 17.8","year: 2019<br />exports_gdp:  9.1<br />imports_gdp: 19.5","year: 2018<br />exports_gdp:  8.8<br />imports_gdp: 18.9","year: 2017<br />exports_gdp:  9.2<br />imports_gdp: 20.1","year: 2016<br />exports_gdp:  8.9<br />imports_gdp: 19.8","year: 2015<br />exports_gdp:  8.5<br />imports_gdp: 19.2","year: 2015<br />exports_gdp:  8.5<br />imports_gdp: 19.2"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(231,76,60,0.3)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[8.5,8.9000000000000004,9.1999999999999993,8.8000000000000007,9.0999999999999996,8.5999999999999996,9.4000000000000004,10.1,9.8000000000000007],"text":["year: 2015<br />exports_gdp:  8.5<br />colour: Exports","year: 2016<br />exports_gdp:  8.9<br />colour: Exports","year: 2017<br />exports_gdp:  9.2<br />colour: Exports","year: 2018<br />exports_gdp:  8.8<br />colour: Exports","year: 2019<br />exports_gdp:  9.1<br />colour: Exports","year: 2020<br />exports_gdp:  8.6<br />colour: Exports","year: 2021<br />exports_gdp:  9.4<br />colour: Exports","year: 2022<br />exports_gdp: 10.1<br />colour: Exports","year: 2023<br />exports_gdp:  9.8<br />colour: Exports"],"type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(39,174,96,1)","dash":"solid"},"hoveron":"points","name":"Exports","legendgroup":"Exports","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[19.199999999999999,19.800000000000001,20.100000000000001,18.899999999999999,19.5,17.800000000000001,19.899999999999999,21.199999999999999,20.5],"text":["year: 2015<br />imports_gdp: 19.2<br />colour: Imports","year: 2016<br />imports_gdp: 19.8<br />colour: Imports","year: 2017<br />imports_gdp: 20.1<br />colour: Imports","year: 2018<br />imports_gdp: 18.9<br />colour: Imports","year: 2019<br />imports_gdp: 19.5<br />colour: Imports","year: 2020<br />imports_gdp: 17.8<br />colour: Imports","year: 2021<br />imports_gdp: 19.9<br />colour: Imports","year: 2022<br />imports_gdp: 21.2<br />colour: Imports","year: 2023<br />imports_gdp: 20.5<br />colour: Imports"],"type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(231,76,60,1)","dash":"solid"},"hoveron":"points","name":"Imports","legendgroup":"Imports","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[-10.699999999999999,-10.9,-10.900000000000002,-10.099999999999998,-10.4,-9.2000000000000011,-10.499999999999998,-11.1,-10.699999999999999],"text":["year: 2015<br />trade_balance: -10.7<br />colour: Trade Balance","year: 2016<br />trade_balance: -10.9<br />colour: Trade Balance","year: 2017<br />trade_balance: -10.9<br />colour: Trade Balance","year: 2018<br />trade_balance: -10.1<br />colour: Trade Balance","year: 2019<br />trade_balance: -10.4<br />colour: Trade Balance","year: 2020<br />trade_balance:  -9.2<br />colour: Trade Balance","year: 2021<br />trade_balance: -10.5<br />colour: Trade Balance","year: 2022<br />trade_balance: -11.1<br />colour: Trade Balance","year: 2023<br />trade_balance: -10.7<br />colour: Trade Balance"],"type":"scatter","mode":"lines","line":{"width":5.6692913385826778,"color":"rgba(52,73,94,1)","dash":"dash"},"hoveron":"points","name":"Trade Balance","legendgroup":"Trade Balance","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":28.625985886259862,"l":45.496056454960573},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Trade Performance (% of GDP) <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2014.5999999999999,2023.4000000000001],"tickmode":"array","ticktext":["2016","2018","2020","2022"],"tickvals":[2016,2018,2020,2022],"categoryorder":"array","categoryarray":["2016","2018","2020","2022"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-12.715,22.814999999999998],"tickmode":"array","ticktext":["-10","0","10","20"],"tickvals":[-10,0,10,20.000000000000004],"categoryorder":"array","categoryarray":["-10","0","10","20"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Percent of GDP","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"x unified","barmode":"relative","height":350},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c2b935a1e":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"417c8ab7eaa":{"x":{},"ymin":{},"ymax":{}},"417c472c1fd3":{"x":{},"y":{},"colour":{}},"417c2a45cef":{"x":{},"y":{},"colour":{}},"417c6167274a":{"x":{},"y":{},"colour":{}}},"cur_data":"417c2b935a1e","visdat":{"417c2b935a1e":["function (y) ","x"],"417c8ab7eaa":["function (y) ","x"],"417c472c1fd3":["function (y) ","x"],"417c2a45cef":["function (y) ","x"],"417c6167274a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="30%" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-danger showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="arrow-down-up" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-arrow-down-up"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Trade Deficit
+</p>
+<p class="value-box-value">
+10% GDP
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-danger showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="currency-exchange" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-currency-exchange"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Current Account
+</p>
+<p class="value-box-value">
+-5% GDP
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-info showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="percent" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-percent"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Export/Import Ratio
+</p>
+<p class="value-box-value">
+50%
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" data-height="60%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="External Indicators Heatmap" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+External Indicators Heatmap
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-c3fc6e474851b56ab7fa" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-c3fc6e474851b56ab7fa">{"x":{"data":[{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[1,2,3,4],"z":[[0.096247420264743908,0.066269382579529593,0.011602002760615744,0,0.058015922681936602,0.11208878723376202,0.039088663326225473,0.044955031885813811,0.11008302391809928,0.12100645922849282],[0.33700346710948464,0.30968469480358657,0.29831660847727176,0.30626576617593915,0.3241213641440514,0.32208426328435735,0.31663400116938673,0.34949520357526359,0.34817493125363436,0.34645321653394218],[0.6305644632461832,0.6552566316861147,0.73207100843099959,0.74743625966255056,0.88806130867871236,1,0.95606544896491097,0.87934938635460025,0.9862825489462268,null],[0.48573048049867112,0.4692059027687685,0.49757755218280542,0.53716648221215513,0.54754918794265028,0.50126971931399777,0.51365287214007782,0.61322897644721008,0.51680858583093481,0.49371340181756429]],"text":[["year: 2015<br />indicator_label: Current Account (% GDP)<br />value: -0.9344467","year: 2016<br />indicator_label: Current Account (% GDP)<br />value: -2.2927966","year: 2017<br />indicator_label: Current Account (% GDP)<br />value: -4.7698576","year: 2018<br />indicator_label: Current Account (% GDP)<br />value: -5.2955618","year: 2019<br />indicator_label: Current Account (% GDP)<br />value: -2.6667733","year: 2020<br />indicator_label: Current Account (% GDP)<br />value: -0.2166506","year: 2021<br />indicator_label: Current Account (% GDP)<br />value: -3.5243958","year: 2022<br />indicator_label: Current Account (% GDP)<br />value: -3.2585818","year: 2023<br />indicator_label: Current Account (% GDP)<br />value: -0.3075348","year: 2024<br />indicator_label: Current Account (% GDP)<br />value:  0.1874225"],["year: 2015<br />indicator_label: Exports (% GDP)<br />value:  9.9745710","year: 2016<br />indicator_label: Exports (% GDP)<br />value:  8.7367164","year: 2017<br />indicator_label: Exports (% GDP)<br />value:  8.2216113","year: 2018<br />indicator_label: Exports (% GDP)<br />value:  8.5817996","year: 2019<br />indicator_label: Exports (% GDP)<br />value:  9.3908635","year: 2020<br />indicator_label: Exports (% GDP)<br />value:  9.2985594","year: 2021<br />indicator_label: Exports (% GDP)<br />value:  9.0515999","year: 2022<br />indicator_label: Exports (% GDP)<br />value: 10.5405903","year: 2023<br />indicator_label: Exports (% GDP)<br />value: 10.4807668","year: 2024<br />indicator_label: Exports (% GDP)<br />value: 10.4027533"],["year: 2015<br />indicator_label: External Debt (% GNI)<br />value: 23.2762601","year: 2016<br />indicator_label: External Debt (% GNI)<br />value: 24.3950993","year: 2017<br />indicator_label: External Debt (% GNI)<br />value: 27.8756740","year: 2018<br />indicator_label: External Debt (% GNI)<br />value: 28.5718966","year: 2019<br />indicator_label: External Debt (% GNI)<br />value: 34.9438285","year: 2020<br />indicator_label: External Debt (% GNI)<br />value: 40.0159386","year: 2021<br />indicator_label: External Debt (% GNI)<br />value: 38.0251981","year: 2022<br />indicator_label: External Debt (% GNI)<br />value: 34.5490782","year: 2023<br />indicator_label: External Debt (% GNI)<br />value: 39.3943803",null],["year: 2015<br />indicator_label: Imports (% GDP)<br />value: 16.7136151","year: 2016<br />indicator_label: Imports (% GDP)<br />value: 15.9648617","year: 2017<br />indicator_label: Imports (% GDP)<br />value: 17.2504237","year: 2018<br />indicator_label: Imports (% GDP)<br />value: 19.0442575","year: 2019<br />indicator_label: Imports (% GDP)<br />value: 19.5147134","year: 2020<br />indicator_label: Imports (% GDP)<br />value: 17.4177213","year: 2021<br />indicator_label: Imports (% GDP)<br />value: 17.9788205","year: 2022<br />indicator_label: Imports (% GDP)<br />value: 22.4907632","year: 2023<br />indicator_label: Imports (% GDP)<br />value: 18.1218106","year: 2024<br />indicator_label: Imports (% GDP)<br />value: 17.0753332"]],"colorscale":[[0,"#F2931D"],[0.011602002760615744,"#F2931C"],[0.039088663326225473,"#F2961A"],[0.044955031885813811,"#F29619"],[0.058015922681936602,"#F29718"],[0.066269382579529593,"#F39817"],[0.096247420264743908,"#F39A14"],[0.11008302391809928,"#F39B13"],[0.11208878723376202,"#F39C13"],[0.12100645922849282,"#F29C13"],[0.29831660847727176,"#D5A22A"],[0.30626576617593915,"#D4A32B"],[0.30968469480358657,"#D3A32B"],[0.31663400116938673,"#D2A32C"],[0.32208426328435735,"#D1A32C"],[0.3241213641440514,"#D1A32D"],[0.33700346710948464,"#CFA42E"],[0.34645321653394218,"#CDA42F"],[0.34817493125363436,"#CDA42F"],[0.34949520357526359,"#CCA42F"],[0.4692059027687685,"#B7A73A"],[0.48573048049867112,"#B4A73B"],[0.49371340181756429,"#B3A83C"],[0.49757755218280542,"#B2A83C"],[0.50126971931399777,"#B1A83C"],[0.51365287214007782,"#AFA83D"],[0.51680858583093481,"#AFA83E"],[0.53716648221215513,"#ABA93F"],[0.54754918794265028,"#A9A940"],[0.61322897644721008,"#9CAA45"],[0.6305644632461832,"#98AA46"],[0.6552566316861147,"#93AB48"],[0.73207100843099959,"#83AC4E"],[0.74743625966255056,"#7FAC4F"],[0.87934938635460025,"#5CAD58"],[0.88806130867871236,"#59AD59"],[0.95606544896491097,"#40AE5D"],[0.9862825489462268,"#30AE5F"],[1,"#27AE60"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015,2015,2015,2015,2016,2016,2016,2016,2017,2017,2017,2017,2018,2018,2018,2018,2019,2019,2019,2019,2020,2020,2020,2020,2021,2021,2021,2021,2022,2022,2022,2022,2023,2023,2023,2023,2024,2024,2024],"y":[2,4,1,3,2,4,1,3,2,4,1,3,2,4,1,3,2,4,1,3,2,4,1,3,2,4,1,3,2,4,1,3,2,4,1,3,2,4,1],"text":[10,16.699999999999999,-0.90000000000000002,23.300000000000001,8.6999999999999993,16,-2.2999999999999998,24.399999999999999,8.1999999999999993,17.300000000000001,-4.7999999999999998,27.899999999999999,8.5999999999999996,19,-5.2999999999999998,28.600000000000001,9.4000000000000004,19.5,-2.7000000000000002,34.899999999999999,9.3000000000000007,17.399999999999999,-0.20000000000000001,40,9.0999999999999996,18,-3.5,38,10.5,22.5,-3.2999999999999998,34.5,10.5,18.100000000000001,-0.29999999999999999,39.399999999999999,10.4,17.100000000000001,0.20000000000000001],"hovertext":["year: 2015<br />indicator_label: Exports (% GDP)<br />value:  9.9745710<br />round(value, 1): 10.0","year: 2015<br />indicator_label: Imports (% GDP)<br />value: 16.7136151<br />round(value, 1): 16.7","year: 2015<br />indicator_label: Current Account (% GDP)<br />value: -0.9344467<br />round(value, 1): -0.9","year: 2015<br />indicator_label: External Debt (% GNI)<br />value: 23.2762601<br />round(value, 1): 23.3","year: 2016<br />indicator_label: Exports (% GDP)<br />value:  8.7367164<br />round(value, 1):  8.7","year: 2016<br />indicator_label: Imports (% GDP)<br />value: 15.9648617<br />round(value, 1): 16.0","year: 2016<br />indicator_label: Current Account (% GDP)<br />value: -2.2927966<br />round(value, 1): -2.3","year: 2016<br />indicator_label: External Debt (% GNI)<br />value: 24.3950993<br />round(value, 1): 24.4","year: 2017<br />indicator_label: Exports (% GDP)<br />value:  8.2216113<br />round(value, 1):  8.2","year: 2017<br />indicator_label: Imports (% GDP)<br />value: 17.2504237<br />round(value, 1): 17.3","year: 2017<br />indicator_label: Current Account (% GDP)<br />value: -4.7698576<br />round(value, 1): -4.8","year: 2017<br />indicator_label: External Debt (% GNI)<br />value: 27.8756740<br />round(value, 1): 27.9","year: 2018<br />indicator_label: Exports (% GDP)<br />value:  8.5817996<br />round(value, 1):  8.6","year: 2018<br />indicator_label: Imports (% GDP)<br />value: 19.0442575<br />round(value, 1): 19.0","year: 2018<br />indicator_label: Current Account (% GDP)<br />value: -5.2955618<br />round(value, 1): -5.3","year: 2018<br />indicator_label: External Debt (% GNI)<br />value: 28.5718966<br />round(value, 1): 28.6","year: 2019<br />indicator_label: Exports (% GDP)<br />value:  9.3908635<br />round(value, 1):  9.4","year: 2019<br />indicator_label: Imports (% GDP)<br />value: 19.5147134<br />round(value, 1): 19.5","year: 2019<br />indicator_label: Current Account (% GDP)<br />value: -2.6667733<br />round(value, 1): -2.7","year: 2019<br />indicator_label: External Debt (% GNI)<br />value: 34.9438285<br />round(value, 1): 34.9","year: 2020<br />indicator_label: Exports (% GDP)<br />value:  9.2985594<br />round(value, 1):  9.3","year: 2020<br />indicator_label: Imports (% GDP)<br />value: 17.4177213<br />round(value, 1): 17.4","year: 2020<br />indicator_label: Current Account (% GDP)<br />value: -0.2166506<br />round(value, 1): -0.2","year: 2020<br />indicator_label: External Debt (% GNI)<br />value: 40.0159386<br />round(value, 1): 40.0","year: 2021<br />indicator_label: Exports (% GDP)<br />value:  9.0515999<br />round(value, 1):  9.1","year: 2021<br />indicator_label: Imports (% GDP)<br />value: 17.9788205<br />round(value, 1): 18.0","year: 2021<br />indicator_label: Current Account (% GDP)<br />value: -3.5243958<br />round(value, 1): -3.5","year: 2021<br />indicator_label: External Debt (% GNI)<br />value: 38.0251981<br />round(value, 1): 38.0","year: 2022<br />indicator_label: Exports (% GDP)<br />value: 10.5405903<br />round(value, 1): 10.5","year: 2022<br />indicator_label: Imports (% GDP)<br />value: 22.4907632<br />round(value, 1): 22.5","year: 2022<br />indicator_label: Current Account (% GDP)<br />value: -3.2585818<br />round(value, 1): -3.3","year: 2022<br />indicator_label: External Debt (% GNI)<br />value: 34.5490782<br />round(value, 1): 34.5","year: 2023<br />indicator_label: Exports (% GDP)<br />value: 10.4807668<br />round(value, 1): 10.5","year: 2023<br />indicator_label: Imports (% GDP)<br />value: 18.1218106<br />round(value, 1): 18.1","year: 2023<br />indicator_label: Current Account (% GDP)<br />value: -0.3075348<br />round(value, 1): -0.3","year: 2023<br />indicator_label: External Debt (% GNI)<br />value: 39.3943803<br />round(value, 1): 39.4","year: 2024<br />indicator_label: Exports (% GDP)<br />value: 10.4027533<br />round(value, 1): 10.4","year: 2024<br />indicator_label: Imports (% GDP)<br />value: 17.0753332<br />round(value, 1): 17.1","year: 2024<br />indicator_label: Current Account (% GDP)<br />value:  0.1874225<br />round(value, 1):  0.2"],"textfont":{"size":11.338582677165356,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2015],"y":[1],"name":"872180b217bdd179e79ff6dcd2c7738e","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#F2931D"],[0.0033444816053511783,"#F2931D"],[0.0066889632107023367,"#F2931C"],[0.010033444816053515,"#F2931C"],[0.013377926421404673,"#F2941C"],[0.016722408026755852,"#F2941C"],[0.02006688963210701,"#F2941B"],[0.023411371237458189,"#F2941B"],[0.026755852842809368,"#F2951B"],[0.030100334448160525,"#F2951A"],[0.033444816053511704,"#F2951A"],[0.036789297658862873,"#F2961A"],[0.040133779264214041,"#F2961A"],[0.043478260869565223,"#F29619"],[0.046822742474916391,"#F29619"],[0.05016722408026756,"#F29719"],[0.053511705685618728,"#F29718"],[0.056856187290969896,"#F29718"],[0.060200668896321065,"#F29718"],[0.06354515050167224,"#F29818"],[0.066889632107023408,"#F39817"],[0.070234113712374577,"#F39817"],[0.073578595317725745,"#F39917"],[0.076923076923076913,"#F39916"],[0.080267558528428082,"#F39916"],[0.083612040133779264,"#F39916"],[0.086956521739130432,"#F39A15"],[0.090301003344481601,"#F39A15"],[0.093645484949832783,"#F39A15"],[0.096989966555183937,"#F39A14"],[0.10033444816053512,"#F39B14"],[0.10367892976588627,"#F39B14"],[0.10702341137123746,"#F39B13"],[0.11036789297658862,"#F39B13"],[0.11371237458193979,"#F39C12"],[0.11705685618729096,"#F39C12"],[0.12040133779264213,"#F29C13"],[0.1237458193979933,"#F29C13"],[0.12709030100334448,"#F19C14"],[0.13043478260869565,"#F19D14"],[0.13377926421404682,"#F09D15"],[0.13712374581939799,"#F09D16"],[0.14046822742474915,"#EF9D16"],[0.14381270903010032,"#EF9D17"],[0.14715719063545149,"#EE9D17"],[0.15050167224080266,"#EE9D18"],[0.15384615384615383,"#ED9D18"],[0.157190635451505,"#EC9E19"],[0.16053511705685616,"#EC9E19"],[0.16387959866220733,"#EB9E1A"],[0.16722408026755853,"#EB9E1A"],[0.17056856187290967,"#EA9E1B"],[0.17391304347826086,"#EA9E1B"],[0.17725752508361201,"#E99E1C"],[0.1806020066889632,"#E99E1C"],[0.18394648829431437,"#E89F1D"],[0.18729096989966557,"#E89F1D"],[0.19063545150501671,"#E79F1E"],[0.19397993311036787,"#E79F1E"],[0.19732441471571904,"#E69F1E"],[0.20066889632107024,"#E59F1F"],[0.20401337792642141,"#E59F1F"],[0.20735785953177255,"#E49F20"],[0.21070234113712372,"#E4A020"],[0.21404682274247491,"#E3A021"],[0.21739130434782608,"#E3A021"],[0.22073578595317725,"#E2A021"],[0.22408026755852839,"#E2A022"],[0.22742474916387959,"#E1A022"],[0.23076923076923075,"#E0A023"],[0.23411371237458192,"#E0A023"],[0.23745819397993312,"#DFA123"],[0.24080267558528426,"#DFA124"],[0.24414715719063543,"#DEA124"],[0.2474916387959866,"#DEA124"],[0.25083612040133779,"#DDA125"],[0.25418060200668896,"#DDA125"],[0.25752508361204013,"#DCA126"],[0.2608695652173913,"#DBA126"],[0.26421404682274247,"#DBA126"],[0.26755852842809363,"#DAA227"],[0.2709030100334448,"#DAA227"],[0.27424749163879597,"#D9A227"],[0.27759197324414714,"#D9A228"],[0.28093645484949831,"#D8A228"],[0.28428093645484948,"#D8A229"],[0.28762541806020064,"#D7A229"],[0.29096989966555181,"#D6A229"],[0.29431438127090298,"#D6A22A"],[0.29765886287625415,"#D5A22A"],[0.30100334448160532,"#D5A32A"],[0.30434782608695649,"#D4A32B"],[0.3076923076923076,"#D4A32B"],[0.31103678929765882,"#D3A32B"],[0.31438127090300999,"#D2A32C"],[0.31772575250836121,"#D2A32C"],[0.32107023411371233,"#D1A32C"],[0.3244147157190635,"#D1A32D"],[0.32775919732441466,"#D0A32D"],[0.33110367892976583,"#D0A32D"],[0.33444816053511706,"#CFA42E"],[0.33779264214046817,"#CEA42E"],[0.34113712374581934,"#CEA42E"],[0.34448160535117056,"#CDA42F"],[0.34782608695652167,"#CDA42F"],[0.3511705685618729,"#CCA42F"],[0.35451505016722401,"#CCA42F"],[0.35785953177257523,"#CBA430"],[0.3612040133779264,"#CAA430"],[0.36454849498327752,"#CAA430"],[0.36789297658862874,"#C9A531"],[0.37123745819397991,"#C9A531"],[0.37458193979933113,"#C8A531"],[0.37792642140468224,"#C8A532"],[0.38127090301003341,"#C7A532"],[0.38461538461538458,"#C6A532"],[0.38795986622073575,"#C6A533"],[0.39130434782608697,"#C5A533"],[0.39464882943143809,"#C5A533"],[0.39799331103678925,"#C4A533"],[0.40133779264214048,"#C3A534"],[0.40468227424749159,"#C3A634"],[0.40802675585284282,"#C2A634"],[0.41137123745819393,"#C2A635"],[0.4147157190635451,"#C1A635"],[0.41806020066889632,"#C1A635"],[0.42140468227424743,"#C0A636"],[0.42474916387959866,"#BFA636"],[0.42809364548494983,"#BFA636"],[0.43143812709030094,"#BEA636"],[0.43478260869565216,"#BEA637"],[0.43812709030100327,"#BDA637"],[0.4414715719063545,"#BCA637"],[0.44481605351170567,"#BCA738"],[0.44816053511705678,"#BBA738"],[0.451505016722408,"#BBA738"],[0.45484949832775917,"#BAA738"],[0.4581939799331104,"#B9A739"],[0.46153846153846151,"#B9A739"],[0.46488294314381262,"#B8A739"],[0.46822742474916385,"#B8A73A"],[0.47157190635451501,"#B7A73A"],[0.47491638795986624,"#B6A73A"],[0.47826086956521735,"#B6A73A"],[0.48160535117056852,"#B5A73B"],[0.48494983277591974,"#B4A73B"],[0.48829431438127086,"#B4A83B"],[0.49163879598662208,"#B3A83B"],[0.49498327759197319,"#B3A83C"],[0.49832775919732436,"#B2A83C"],[0.50167224080267558,"#B1A83C"],[0.50501672240802675,"#B1A83D"],[0.50836120401337792,"#B0A83D"],[0.51170568561872909,"#B0A83D"],[0.51505016722408026,"#AFA83D"],[0.51839464882943143,"#AEA83E"],[0.52173913043478259,"#AEA83E"],[0.52508361204013376,"#ADA83E"],[0.52842809364548493,"#ACA83E"],[0.5317725752508361,"#ACA83F"],[0.53511705685618727,"#ABA83F"],[0.53846153846153844,"#ABA93F"],[0.5418060200668896,"#AAA93F"],[0.54515050167224077,"#A9A940"],[0.54849498327759194,"#A9A940"],[0.55183946488294311,"#A8A940"],[0.55518394648829428,"#A7A941"],[0.55852842809364545,"#A7A941"],[0.56187290969899661,"#A6A941"],[0.56521739130434778,"#A5A941"],[0.56856187290969895,"#A5A942"],[0.57190635451505012,"#A4A942"],[0.57525083612040129,"#A3A942"],[0.57859531772575246,"#A3A942"],[0.58193979933110362,"#A2A943"],[0.58528428093645479,"#A2A943"],[0.58862876254180596,"#A1AA43"],[0.59197324414715724,"#A0AA43"],[0.5953177257525083,"#A0AA44"],[0.59866220735785947,"#9FAA44"],[0.60200668896321063,"#9EAA44"],[0.6053511705685618,"#9EAA44"],[0.60869565217391308,"#9DAA45"],[0.61204013377926414,"#9CAA45"],[0.61538461538461531,"#9CAA45"],[0.61872909698996659,"#9BAA45"],[0.62207357859531764,"#9AAA46"],[0.62541806020066892,"#9AAA46"],[0.62876254180601998,"#99AA46"],[0.63210702341137115,"#98AA46"],[0.63545150501672243,"#97AA47"],[0.63879598662207349,"#97AA47"],[0.64214046822742465,"#96AA47"],[0.64548494983277593,"#95AA47"],[0.64882943143812699,"#95AB48"],[0.65217391304347827,"#94AB48"],[0.65551839464882933,"#93AB48"],[0.6588628762541805,"#93AB48"],[0.66220735785953178,"#92AB49"],[0.66555183946488283,"#91AB49"],[0.66889632107023411,"#91AB49"],[0.67224080267558528,"#90AB49"],[0.67558528428093634,"#8FAB4A"],[0.67892976588628762,"#8EAB4A"],[0.68227424749163867,"#8EAB4A"],[0.68561872909698995,"#8DAB4A"],[0.68896321070234112,"#8CAB4B"],[0.69230769230769218,"#8CAB4B"],[0.69565217391304346,"#8BAB4B"],[0.69899665551839463,"#8AAB4B"],[0.7023411371237458,"#89AB4C"],[0.70568561872909696,"#89AB4C"],[0.70903010033444802,"#88AB4C"],[0.71237458193979919,"#87AB4C"],[0.71571906354515047,"#86AC4D"],[0.71906354515050164,"#86AC4D"],[0.72240802675585281,"#85AC4D"],[0.72575250836120397,"#84AC4D"],[0.72909698996655503,"#83AC4D"],[0.73244147157190631,"#83AC4E"],[0.73578595317725748,"#82AC4E"],[0.73913043478260865,"#81AC4E"],[0.74247491638795982,"#80AC4E"],[0.74581939799331087,"#7FAC4F"],[0.74916387959866226,"#7FAC4F"],[0.75250836120401332,"#7EAC4F"],[0.75585284280936449,"#7DAC4F"],[0.75919732441471566,"#7CAC50"],[0.76254180602006683,"#7CAC50"],[0.76588628762541811,"#7BAC50"],[0.76923076923076916,"#7AAC50"],[0.77257525083612033,"#79AC51"],[0.7759197324414715,"#78AC51"],[0.77926421404682267,"#77AC51"],[0.78260869565217395,"#77AC51"],[0.785953177257525,"#76AC52"],[0.78929765886287617,"#75AC52"],[0.79264214046822734,"#74AC52"],[0.79598662207357851,"#73AC52"],[0.79933110367892979,"#72AD52"],[0.80267558528428096,"#72AD53"],[0.80602006688963201,"#71AD53"],[0.80936454849498318,"#70AD53"],[0.81270903010033435,"#6FAD53"],[0.81605351170568563,"#6EAD54"],[0.8193979933110368,"#6DAD54"],[0.82274247491638786,"#6CAD54"],[0.82608695652173902,"#6BAD54"],[0.82943143812709019,"#6AAD55"],[0.83277591973244147,"#6AAD55"],[0.83612040133779264,"#69AD55"],[0.83946488294314381,"#68AD55"],[0.84280936454849487,"#67AD55"],[0.84615384615384603,"#66AD56"],[0.84949832775919731,"#65AD56"],[0.85284280936454848,"#64AD56"],[0.85618729096989965,"#63AD56"],[0.85953177257525071,"#62AD57"],[0.86287625418060188,"#61AD57"],[0.86622073578595316,"#60AD57"],[0.86956521739130432,"#5FAD57"],[0.87290969899665549,"#5EAD58"],[0.87625418060200655,"#5DAD58"],[0.87959866220735772,"#5CAD58"],[0.882943143812709,"#5BAD58"],[0.88628762541806017,"#5AAD58"],[0.88963210702341133,"#59AD59"],[0.8929765886287625,"#58AD59"],[0.89632107023411356,"#57AD59"],[0.89966555183946484,"#55AD59"],[0.90301003344481601,"#54AD5A"],[0.90635451505016718,"#53AD5A"],[0.90969899665551834,"#52AD5A"],[0.9130434782608694,"#51AE5A"],[0.91638795986622079,"#50AE5A"],[0.91973244147157185,"#4EAE5B"],[0.92307692307692302,"#4DAE5B"],[0.92642140468227419,"#4CAE5B"],[0.92976588628762524,"#4BAE5B"],[0.93311036789297663,"#49AE5C"],[0.93645484949832769,"#48AE5C"],[0.93979933110367886,"#47AE5C"],[0.94314381270903003,"#45AE5C"],[0.9464882943143812,"#44AE5C"],[0.94983277591973247,"#42AE5D"],[0.95317725752508353,"#41AE5D"],[0.9565217391304347,"#3FAE5D"],[0.95986622073578587,"#3EAE5D"],[0.96321070234113704,"#3CAE5E"],[0.96655518394648832,"#3BAE5E"],[0.96989966555183948,"#39AE5E"],[0.97324414715719054,"#37AE5E"],[0.97658862876254171,"#36AE5E"],[0.97993311036789288,"#34AE5F"],[0.98327759197324416,"#32AE5F"],[0.98662207357859533,"#30AE5F"],[0.98996655518394638,"#2EAE5F"],[0.99331103678929755,"#2CAE60"],[0.99665551839464872,"#29AE60"],[1,"#27AE60"]],"colorbar":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"thickness":23.040000000000003,"title":"% of GDP/GNI","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"tickmode":"array","ticktext":["0","10","20","30","40"],"tickvals":[0.11814724768226266,0.33810612338331808,0.55806499908437368,0.77802387478542911,0.99798275048648466],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":37.409235229669136,"l":163.71938563719391},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> External Sector Health Check <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2014,2025],"tickmode":"array","ticktext":["2015.0","2017.5","2020.0","2022.5","2025.0"],"tickvals":[2015,2017.5,2020,2022.5,2025],"categoryorder":"array","categoryarray":["2015.0","2017.5","2020.0","2022.5","2025.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Current Account (% GDP)","Exports (% GDP)","External Debt (% GNI)","Imports (% GDP)"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Current Account (% GDP)","Exports (% GDP)","External Debt (% GNI)","Imports (% GDP)"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"% of GDP/GNI","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","height":450},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c69d6385c":{"x":{},"y":{},"fill":{},"type":"heatmap"},"417c111e310c":{"x":{},"y":{},"fill":{},"label":{}}},"cur_data":"417c69d6385c","visdat":{"417c69d6385c":["function (y) ","x"],"417c111e310c":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Export Performance &amp; Strategy</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Export Composition:</strong> - 📦 Textiles: 60% of total exports - 🌾 Agriculture: 20% (rice, fruits) - 🏭 Manufacturing: 15% (sports goods, surgical) - 💻 IT Services: 5% (growing rapidly)</p>
+<p><strong>Competitiveness Challenges:</strong> 1. <strong>Energy Costs</strong>: 30% higher than competitors 2. <strong>Logistics</strong>: Poor ranking in LPI 3. <strong>Technology</strong>: Low value addition 4. <strong>Market Access</strong>: Limited FTAs</p>
+<p><strong>Strategic Priorities:</strong></p>
+<p>🎯 <strong>Short-term</strong> (1-2 years) - Energy subsidy for exporters - Streamline refund mechanisms - Market diversification</p>
+<p>📈 <strong>Medium-term</strong> (3-5 years) - Technology upgradation - Skills development - Value chain integration</p>
+<p>🚀 <strong>Long-term</strong> (5+ years) - Move up value chain - Services export growth - Regional integration</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="fiscal-analysis" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-fiscal-analysis">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="40%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Fiscal Performance Over Time" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Fiscal Performance Over Time
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-e89d73b430c376371308" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-e89d73b430c376371308">{"x":{"data":[{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[-5.7999999999999998,-6.2000000000000002,-5.9000000000000004,-6.0999999999999996,-8.0999999999999996,-7.4000000000000004,-6.7999999999999998,-5.9000000000000004,-5.2000000000000002],"text":["year: 2015<br />value: -5.8","year: 2016<br />value: -6.2","year: 2017<br />value: -5.9","year: 2018<br />value: -6.1","year: 2019<br />value: -8.1","year: 2020<br />value: -7.4","year: 2021<br />value: -6.8","year: 2022<br />value: -5.9","year: 2023<br />value: -5.2"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(231,76,60,1)","dash":"solid"},"hoveron":"points","name":"fiscal_balance_gdp","legendgroup":"fiscal_balance_gdp","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(231,76,60,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,76,60,1)"}},"frame":null},{"x":[2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[65,68,72,75,89,91,92,87,85],"text":["year: 2015<br />value: 65.0","year: 2016<br />value: 68.0","year: 2017<br />value: 72.0","year: 2018<br />value: 75.0","year: 2019<br />value: 89.0","year: 2020<br />value: 91.0","year: 2021<br />value: 92.0","year: 2022<br />value: 87.0","year: 2023<br />value: 85.0"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(155,89,182,1)","dash":"solid"},"hoveron":"points","name":"govt_debt_gdp","legendgroup":"govt_debt_gdp","showlegend":true,"xaxis":"x","yaxis":"y2","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(155,89,182,1)","opacity":1,"size":9.4488188976377963,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(155,89,182,1)"}},"frame":null},{"x":[2014.5999999999999,2023.4000000000001],"y":[-3,-3],"text":"","type":"scatter","mode":"lines","line":{"width":3.0236220472440949,"color":"rgba(231,76,60,0.5)","dash":"dash"},"hoveron":"points","name":"fiscal_balance_gdp","legendgroup":"fiscal_balance_gdp","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2014.5999999999999,2023.4000000000001],"y":[60,60],"text":"","type":"scatter","mode":"lines","line":{"width":3.0236220472440949,"color":"rgba(155,89,182,0.5)","dash":"dash"},"hoveron":"points","name":"govt_debt_gdp","legendgroup":"govt_debt_gdp","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":80,"r":50,"b":50,"l":50,"pad":10},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Fiscal Performance Over Time <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2014.5999999999999,2023.4000000000001],"tickmode":"array","ticktext":["2016","2018","2020","2022"],"tickvals":[2016,2018,2020,2022],"categoryorder":"array","categoryarray":["2016","2018","2020","2022"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y2","title":"","hoverformat":".2f"},"yaxis":{"domain":[0.52641552511415524,1],"automargin":true,"type":"linear","autorange":false,"range":[-8.3550000000000004,-2.7450000000000001],"tickmode":"array","ticktext":["-8","-7","-6","-5","-4","-3"],"tickvals":[-8,-7,-6,-5,-4,-3],"categoryorder":"array","categoryarray":["-8","-7","-6","-5","-4","-3"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0.52641552511415524,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":26.301369863013704,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":0.47358447488584476},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":26.301369863013704,"yanchor":0.47358447488584476,"ysizemode":"pixel"}],"annotations":[{"text":"Fiscal Balance (% GDP)","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Government Debt (% GDP)","x":0.5,"y":0.47358447488584476,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis2":{"type":"linear","autorange":false,"range":[58.399999999999999,93.599999999999994],"tickmode":"array","ticktext":["60","70","80","90"],"tickvals":[60,70,80,90],"categoryorder":"array","categoryarray":["60","70","80","90"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,0.47358447488584476],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","height":400},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c57222832":{"x":{},"y":{},"colour":{},"type":"scatter"},"417c536e9a8":{"x":{},"y":{},"colour":{}},"417c459c2287":{"yintercept":{},"colour":{}}},"cur_data":"417c57222832","visdat":{"417c57222832":["function (y) ","x"],"417c536e9a8":["function (y) ","x"],"417c459c2287":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Fiscal Structure Analysis</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Revenue Performance (% GDP):</strong> - Tax Revenue: 10.5% - Non-tax Revenue: 2.7% - <strong>Total: 13.2%</strong> (↑ 0.5% YoY)</p>
+<p><strong>Expenditure Breakdown (% GDP):</strong> - Current: 18.0% - Development: 3.5% - Debt Servicing: 7.6% - <strong>Total: 29.1%</strong></p>
+<p><strong>Key Fiscal Challenges:</strong> 1. Narrow tax base (1.5M filers) 2. High debt servicing burden 3. Energy sector losses 4. Low development spending</p>
+<p><strong>Reform Priorities:</strong> - 🎯 Broaden tax base - 💡 Energy sector reforms - 📊 Expenditure efficiency - 🏗️ Increase PSDP allocation</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" data-height="60%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Debt Dynamics &amp; Projections" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Debt Dynamics &amp; Projections
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-1c31a882841f4964dbc4" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-1c31a882841f4964dbc4">{"x":{"data":[{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","mode":"","frame":null},{"x":[2000],"y":[55.0324216144747],"text":"year: 2000<br />value: 55.03242","type":"scatter","mode":"lines+markers","line":{"width":5.6692913385826778,"color":"rgba(142,68,173,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(142,68,173,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(142,68,173,1)"}},"frame":null},{"x":[1999.9000000000001,2002.0999999999999],"y":[60,60],"text":"yintercept: 60","type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(231,76,60,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2002],"y":[62],"text":"Sustainable Threshold","hovertext":"x: 2002<br />y: 62","textfont":{"size":11.338582677165356,"color":"rgba(231,76,60,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":28.625985886259862,"l":38.854296388542977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Government Debt Evolution <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1999.9000000000001,2002.0999999999999],"tickmode":"array","ticktext":["2000.0","2000.5","2001.0","2001.5","2002.0"],"tickvals":[2000,2000.5,2001,2001.5,2002],"categoryorder":"array","categoryarray":["2000.0","2000.5","2001.0","2001.5","2002.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[54.684042695198436,62.348378919276264],"tickmode":"array","ticktext":["56","58","60","62"],"tickvals":[56,58,60,62],"categoryorder":"array","categoryarray":["56","58","60","62"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Debt-to-GDP Ratio (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","height":450},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c624c5c99":{"x":{},"y":{},"type":"scatter"},"417c61665793":{"x":{},"y":{}},"417c84119c7":{"x":{},"y":{}},"417c22f514d7":{"yintercept":{}},"417c2e369db":{"x":{},"y":{}}},"cur_data":"417c624c5c99","visdat":{"417c624c5c99":["function (y) ","x"],"417c61665793":["function (y) ","x"],"417c84119c7":["function (y) ","x"],"417c22f514d7":["function (y) ","x"],"417c2e369db":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Fiscal Space &amp; Sustainability</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Debt Sustainability Indicators:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Current</th>
+<th>Threshold</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debt/GDP</td>
+<td>85.2%</td>
+<td>60%</td>
+<td>🔴 High</td>
+</tr>
+<tr class="even">
+<td>Interest/Revenue</td>
+<td>45%</td>
+<td>30%</td>
+<td>🔴 Critical</td>
+</tr>
+<tr class="odd">
+<td>Primary Balance</td>
+<td>-1.2%</td>
+<td>+1.0%</td>
+<td>🟡 Improving</td>
+</tr>
+<tr class="even">
+<td>Debt Service/Exports</td>
+<td>28%</td>
+<td>20%</td>
+<td>🔴 High</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Creating Fiscal Space:</strong></p>
+<ol type="1">
+<li><strong>Revenue Enhancement</strong>
+<ul>
+<li>Digital tax system rollout</li>
+<li>Property tax reforms</li>
+<li>GST harmonization</li>
+</ul></li>
+<li><strong>Expenditure Rationalization</strong>
+<ul>
+<li>Targeted subsidies</li>
+<li>Public sector efficiency</li>
+<li>Pension reforms</li>
+</ul></li>
+<li><strong>Debt Management</strong>
+<ul>
+<li>Re-profiling external debt</li>
+<li>Domestic debt optimization</li>
+<li>Concessional financing</li>
+</ul></li>
+</ol>
+<p><strong>Medium-term Target:</strong> Reduce debt-to-GDP to 70% by 2028</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="social-development" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-social-development">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="50%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Human Development Progress" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Human Development Progress
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-53fb5d46575f47481d07" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-53fb5d46575f47481d07">{"x":{"data":[{"x":[2010,2011,2012,2013,2014,2017,2018,2019],"y":[55,55,57,56,57,59,57,58],"text":["year: 2010<br />value: 55.000","year: 2011<br />value: 55.000","year: 2012<br />value: 57.000","year: 2013<br />value: 56.000","year: 2014<br />value: 57.000","year: 2017<br />value: 59.000","year: 2018<br />value: 57.000","year: 2019<br />value: 58.000"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(39,174,96,1)","dash":"solid"},"hoveron":"points","name":"Literacy Rate","legendgroup":"Literacy Rate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(39,174,96,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(39,174,96,1)"}},"frame":null},{"x":[2010,2011,2013,2015,2018],"y":[36.799999999999997,36.299999999999997,29.5,24.300000000000001,21.899999999999999],"text":["year: 2010<br />value: 36.800","year: 2011<br />value: 36.300","year: 2013<br />value: 29.500","year: 2015<br />value: 24.300","year: 2018<br />value: 21.900"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(231,76,60,1)","dash":"solid"},"hoveron":"points","name":"Poverty Rate","legendgroup":"Poverty Rate","showlegend":true,"xaxis":"x","yaxis":"y2","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(231,76,60,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,76,60,1)"}},"frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[0.65300000000000002,0.79600000000000004,3.6669999999999998,2.9540000000000002,1.827,3.5659999999999998,2.2850000000000001,3.2149999999999999,4.0830000000000002,4.8300000000000001,6.1269999999999998,6.3380000000000001,5.4850000000000003,5.4080000000000004,5.4720000000000004],"text":["year: 2010<br />value:  0.653","year: 2011<br />value:  0.796","year: 2012<br />value:  3.667","year: 2013<br />value:  2.954","year: 2014<br />value:  1.827","year: 2015<br />value:  3.566","year: 2016<br />value:  2.285","year: 2017<br />value:  3.215","year: 2018<br />value:  4.083","year: 2019<br />value:  4.830","year: 2020<br />value:  6.127","year: 2021<br />value:  6.338","year: 2022<br />value:  5.485","year: 2023<br />value:  5.408","year: 2024<br />value:  5.472"],"type":"scatter","mode":"lines+markers","line":{"width":4.5354330708661417,"color":"rgba(243,156,18,1)","dash":"solid"},"hoveron":"points","name":"Unemployment","legendgroup":"Unemployment","showlegend":true,"xaxis":"x","yaxis":"y3","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(243,156,18,1)","opacity":1,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(243,156,18,1)"}},"frame":null}],"layout":{"margin":{"t":57.975923619759243,"r":7.3059360730593621,"b":28.625985886259862,"l":38.854296388542977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Social Development Indicators <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2009.3,2024.7],"tickmode":"array","ticktext":["2010","2015","2020"],"tickvals":[2010,2015,2020],"categoryorder":"array","categoryarray":["2010","2015","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y3","title":"","hoverformat":".2f"},"yaxis":{"domain":[0.68150684931506855,1],"automargin":true,"type":"linear","autorange":false,"range":[54.799999999999997,59.200000000000003],"tickmode":"array","ticktext":["55","56","57","58","59"],"tickvals":[55,56,57,58,59],"categoryorder":"array","categoryarray":["55","56","57","58","59"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"annotations":[{"text":"Rate (%)","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-23.511830635118312},{"text":"Literacy Rate","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Poverty Rate","x":0.5,"y":0.65182648401826493,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Unemployment","x":0.5,"y":0.31849315068493156,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":11.68949771689498},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0.68150684931506855,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":23.37899543378996,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0.34817351598173518,"y1":0.65182648401826493},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":23.37899543378996,"yanchor":0.65182648401826493,"ysizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":0.31849315068493156},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":23.37899543378996,"yanchor":0.31849315068493156,"ysizemode":"pixel"}],"yaxis2":{"type":"linear","autorange":false,"range":[21.154999999999998,37.544999999999995],"tickmode":"array","ticktext":["25","30","35"],"tickvals":[25,30,35],"categoryorder":"array","categoryarray":["25","30","35"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0.34817351598173518,0.65182648401826493],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"yaxis3":{"type":"linear","autorange":false,"range":[0.36874999999999997,6.6222500000000002],"tickmode":"array","ticktext":["2","4","6"],"tickvals":[2,4.0000000000000009,6],"categoryorder":"array","categoryarray":["2","4","6"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"domain":[0,0.31849315068493156],"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","height":400},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c2a70664e":{"x":{},"y":{},"colour":{},"type":"scatter"},"417c452433ff":{"x":{},"y":{},"colour":{}}},"cur_data":"417c2a70664e","visdat":{"417c2a70664e":["function (y) ","x"],"417c452433ff":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Regional Development Comparison" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
+Regional Development Comparison
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-7923f77a9d0f2483e1b7" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-7923f77a9d0f2483e1b7">{"x":{"data":[{"x":[77],"y":[21.899999999999999],"text":"literacy_rate: 77<br />poverty_rate: 21.9<br />country: India<br />size: 5","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","opacity":0.69999999999999996,"size":17.142175392501688,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(68,1,84,1)"}},"hoveron":"points","name":"India","legendgroup":"India","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[58],"y":[21.899999999999999],"text":"literacy_rate: 58<br />poverty_rate: 21.9<br />country: Pakistan<br />size: 5","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(59,82,139,1)","opacity":0.69999999999999996,"size":17.142175392501688,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(59,82,139,1)"}},"hoveron":"points","name":"Pakistan","legendgroup":"Pakistan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[76],"y":[18.699999999999999],"text":"literacy_rate: 76<br />poverty_rate: 18.7<br />country: Bangladesh<br />size: 5","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(33,144,140,1)","opacity":0.69999999999999996,"size":17.142175392501688,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(33,144,140,1)"}},"hoveron":"points","name":"Bangladesh","legendgroup":"Bangladesh","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[92],"y":[14.300000000000001],"text":"literacy_rate: 92<br />poverty_rate: 14.3<br />country: Sri Lanka<br />size: 5","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,200,99,1)","opacity":0.69999999999999996,"size":17.142175392501688,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,200,99,1)"}},"hoveron":"points","name":"Sri Lanka","legendgroup":"Sri Lanka","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[96],"y":[4.2999999999999998],"text":"literacy_rate: 96<br />poverty_rate:  4.3<br />country: Viet Nam<br />size: 5","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","opacity":0.69999999999999996,"size":17.142175392501688,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(253,231,37,1)"}},"hoveron":"points","name":"Viet Nam","legendgroup":"Viet Nam","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[77],"y":[21.899999999999999],"text":"India","hovertext":"literacy_rate: 77<br />poverty_rate: 21.9<br />country: India<br />size: 3<br />country: India","textfont":{"size":11.338582677165356,"color":"rgba(68,1,84,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"India","legendgroup":"India","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[58],"y":[21.899999999999999],"text":"Pakistan","hovertext":"literacy_rate: 58<br />poverty_rate: 21.9<br />country: Pakistan<br />size: 3<br />country: Pakistan","textfont":{"size":11.338582677165356,"color":"rgba(59,82,139,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Pakistan","legendgroup":"Pakistan","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[76],"y":[18.699999999999999],"text":"Bangladesh","hovertext":"literacy_rate: 76<br />poverty_rate: 18.7<br />country: Bangladesh<br />size: 3<br />country: Bangladesh","textfont":{"size":11.338582677165356,"color":"rgba(33,144,140,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Bangladesh","legendgroup":"Bangladesh","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[92],"y":[14.300000000000001],"text":"Sri Lanka","hovertext":"literacy_rate: 92<br />poverty_rate: 14.3<br />country: Sri Lanka<br />size: 3<br />country: Sri Lanka","textfont":{"size":11.338582677165356,"color":"rgba(93,200,99,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Sri Lanka","legendgroup":"Sri Lanka","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[96],"y":[4.2999999999999998],"text":"Viet Nam","hovertext":"literacy_rate: 96<br />poverty_rate:  4.3<br />country: Viet Nam<br />size: 3<br />country: Viet Nam","textfont":{"size":11.338582677165356,"color":"rgba(253,231,37,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Viet Nam","legendgroup":"Viet Nam","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":43.237858032378583,"l":38.854296388542977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Development Outcomes <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[56.100000000000001,97.900000000000006],"tickmode":"array","ticktext":["60","70","80","90"],"tickvals":[60,70,80,90],"categoryorder":"array","categoryarray":["60","70","80","90"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Literacy Rate (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.4199999999999999,22.779999999999998],"tickmode":"array","ticktext":["5","10","15","20"],"tickvals":[5,10,15,20],"categoryorder":"array","categoryarray":["5","10","15","20"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Poverty Rate (%)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","height":400},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c5bd25ea2":{"x":{},"y":{},"colour":{},"size":{},"type":"scatter"},"417c217293e":{"x":{},"y":{},"colour":{},"size":{},"label":{}}},"cur_data":"417c5bd25ea2","visdat":{"417c5bd25ea2":["function (y) ","x"],"417c217293e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" data-height="50%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Regional Development Gaps</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Provincial Poverty Rates:</strong> - Punjab: 31.4% - Sindh: 35.7% - KPK: 40.2% - Balochistan: 62.3%</p>
+<p><strong>Urban-Rural Divide:</strong> - Urban Poverty: 18.2% - Rural Poverty: 43.7% - Gap: 25.5 percentage points</p>
+<p><strong>Key Disparities:</strong> 1. <strong>Education</strong>: Rural literacy 35% lower 2. <strong>Health</strong>: Infant mortality 2x in rural areas 3. <strong>Infrastructure</strong>: 40% rural areas lack roads 4. <strong>Employment</strong>: Urban unemployment lower</p>
+<p><strong>Policy Interventions:</strong> - Ehsaas Program: 12M beneficiaries - BISP: PKR 400B annual allocation - Skills programs targeting youth - Rural development initiatives</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Sustainable Development Goals Progress</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>SDG Performance (2024):</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Goal</th>
+<th>Target</th>
+<th>Current</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🎯 <strong>No Poverty</strong></td>
+<td>15%</td>
+<td>35.1%</td>
+<td>🔴 Off-track</td>
+</tr>
+<tr class="even">
+<td>🍽️ <strong>Zero Hunger</strong></td>
+<td>10%</td>
+<td>20.3%</td>
+<td>🟡 Slow progress</td>
+</tr>
+<tr class="odd">
+<td>🏥 <strong>Good Health</strong></td>
+<td>&lt;40</td>
+<td>62/1000</td>
+<td>🔴 Off-track</td>
+</tr>
+<tr class="even">
+<td>📚 <strong>Quality Education</strong></td>
+<td>100%</td>
+<td>72%</td>
+<td>🟡 Improving</td>
+</tr>
+<tr class="odd">
+<td>👥 <strong>Gender Equality</strong></td>
+<td>0.90</td>
+<td>0.56</td>
+<td>🔴 Major gaps</td>
+</tr>
+<tr class="even">
+<td>💧 <strong>Clean Water</strong></td>
+<td>100%</td>
+<td>89%</td>
+<td>🟢 On-track</td>
+</tr>
+<tr class="odd">
+<td>⚡ <strong>Clean Energy</strong></td>
+<td>30%</td>
+<td>18%</td>
+<td>🟡 Accelerating</td>
+</tr>
+<tr class="even">
+<td>💼 <strong>Decent Work</strong></td>
+<td>3%</td>
+<td>6.3%</td>
+<td>🔴 High unemployment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical Interventions Needed:</strong> 1. Scale up social protection 2. Invest in human capital 3. Address gender gaps 4. Climate adaptation focus</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="policy-dashboard" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-policy-dashboard">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-height="100%" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="60%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Comprehensive Policy Recommendations</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>I. Immediate Actions (0-6 months)</strong></p>
+<p>🎯 <strong>Stabilization Measures</strong> - Maintain inflation targeting framework - Address circular debt in energy sector - Fast-track pending export refunds - Strengthen social safety nets</p>
+<p><strong>II. Short-term Reforms (6-18 months)</strong></p>
+<p>📈 <strong>Growth Enhancement</strong> - SME credit guarantee scheme - Export diversification incentives - Agricultural productivity program - Digital economy promotion</p>
+<p>💰 <strong>Fiscal Consolidation</strong> - Broaden tax base to 3M filers - Rationalize energy subsidies - Improve tax administration - Control current expenditures</p>
+<p><strong>III. Medium-term Structural Reforms (2-5 years)</strong></p>
+<p>🏭 <strong>Competitiveness Agenda</strong> - Special Economic Zones operationalization - Skills development aligned with industry - Infrastructure modernization - Regional trade integration</p>
+<p>🏛️ <strong>Institutional Strengthening</strong> - Civil service reforms - Regulatory improvements - Provincial fiscal capacity - Data and statistics enhancement</p>
+<p><strong>IV. Long-term Transformation (5+ years)</strong></p>
+<p>🚀 <strong>Economic Transformation</strong> - Knowledge economy transition - Green growth strategy - Demographic dividend capture - Global value chain integration</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="40%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Policy Impact Assessment</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Reform Areas by Impact &amp; Feasibility:</strong></p>
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-02e6b747170ec5ed1a50" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-02e6b747170ec5ed1a50">{"x":{"data":[{"x":[4],"y":[3.5],"text":"Feasibility: 4.0<br />Impact: 3.5<br />Policy: Social Protection<br />Timeline: Immediate","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,76,60,1)","opacity":0.69999999999999996,"size":30.236220472440948,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,76,60,1)"}},"hoveron":"points","name":"Immediate","legendgroup":"Immediate","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3],"y":[4.2000000000000002],"text":"Feasibility: 3.0<br />Impact: 4.2<br />Policy: Education<br />Timeline: Long","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(155,89,182,1)","opacity":0.69999999999999996,"size":30.236220472440948,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(155,89,182,1)"}},"hoveron":"points","name":"Long","legendgroup":"Long","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2,2.7999999999999998,3.5],"y":[4.7999999999999998,4,3.7000000000000002],"text":["Feasibility: 2.0<br />Impact: 4.8<br />Policy: Energy Reform<br />Timeline: Medium","Feasibility: 2.8<br />Impact: 4.0<br />Policy: Infrastructure<br />Timeline: Medium","Feasibility: 3.5<br />Impact: 3.7<br />Policy: Agriculture<br />Timeline: Medium"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(52,152,219,1)","opacity":0.69999999999999996,"size":30.236220472440948,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(52,152,219,1)"}},"hoveron":"points","name":"Medium","legendgroup":"Medium","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.5,3.7999999999999998,4.2000000000000002],"y":[4.5,4,3.7999999999999998],"text":["Feasibility: 2.5<br />Impact: 4.5<br />Policy: Tax Reform<br />Timeline: Short","Feasibility: 3.8<br />Impact: 4.0<br />Policy: Export Promotion<br />Timeline: Short","Feasibility: 4.2<br />Impact: 3.8<br />Policy: Digitalization<br />Timeline: Short"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(243,156,18,1)","opacity":0.69999999999999996,"size":30.236220472440948,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(243,156,18,1)"}},"hoveron":"points","name":"Short","legendgroup":"Short","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.5,3.7999999999999998,2,4,3,2.7999999999999998,4.2000000000000002,3.5],"y":[4.5,4,4.7999999999999998,3.5,4.2000000000000002,4,3.7999999999999998,3.7000000000000002],"text":["Tax Reform","Export Promotion","Energy Reform","Social Protection","Education","Infrastructure","Digitalization","Agriculture"],"hovertext":["Feasibility: 2.5<br />Impact: 4.5<br />Policy: Tax Reform","Feasibility: 3.8<br />Impact: 4.0<br />Policy: Export Promotion","Feasibility: 2.0<br />Impact: 4.8<br />Policy: Energy Reform","Feasibility: 4.0<br />Impact: 3.5<br />Policy: Social Protection","Feasibility: 3.0<br />Impact: 4.2<br />Policy: Education","Feasibility: 2.8<br />Impact: 4.0<br />Policy: Infrastructure","Feasibility: 4.2<br />Impact: 3.8<br />Policy: Digitalization","Feasibility: 3.5<br />Impact: 3.7<br />Policy: Agriculture"],"textfont":{"size":11.338582677165356,"color":"rgba(255,255,255,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3,3],"y":[3.4350000000000001,4.8650000000000002],"text":"xintercept: 3","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,0.5)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.8899999999999999,4.3100000000000005],"y":[4,4],"text":"yintercept: 4","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,0.5)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":46.286425902864259,"r":7.3059360730593621,"b":43.237858032378583,"l":45.496056454960573},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Policy Priority Matrix <\/b>","font":{"color":"rgba(44,62,80,1)","family":"","size":18.596928185969279},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.8899999999999999,4.3100000000000005],"tickmode":"array","ticktext":["2.0","2.5","3.0","3.5","4.0"],"tickvals":[2,2.5,3,3.5,4],"categoryorder":"array","categoryarray":["2.0","2.5","3.0","3.5","4.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Implementation Feasibility →","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.4350000000000001,4.8650000000000002],"tickmode":"array","ticktext":["3.5","4.0","4.5"],"tickvals":[3.5,4,4.5],"categoryorder":"array","categoryarray":["3.5","4.0","4.5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Economic Impact →","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Timeline","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","height":350},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"417c707e22bd":{"x":{},"y":{},"label":{},"colour":{},"type":"scatter"},"417c660e48a0":{"x":{},"y":{},"label":{}},"417c2b50743c":{"xintercept":{}},"417c55f2d16":{"yintercept":{}}},"cur_data":"417c707e22bd","visdat":{"417c707e22bd":["function (y) ","x"],"417c660e48a0":["function (y) ","x"],"417c2b50743c":["function (y) ","x"],"417c55f2d16":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<p><strong>Key Insights:</strong> - Energy reforms: Highest impact but challenging - Digital initiatives: Easy wins with good returns - Tax reforms: Critical but politically difficult - Social protection: Immediate need &amp; feasible</p>
+<p><strong>Success Factors:</strong> ✅ Political commitment ✅ Implementation capacity ✅ Stakeholder buy-in ✅ Monitoring framework</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+</div><div id="about" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-about">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Pakistan Economic Observatory</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Purpose:</strong> This dashboard provides real-time monitoring and analysis of Pakistan’s economic indicators to support evidence-based policy making and public understanding of economic trends.</p>
+<p><strong>Features:</strong> - 📊 Interactive visualizations using Plotly - 🔄 Automated data updates from World Bank - 📈 Trend analysis and forecasting - 🌍 Regional comparisons - 📋 Policy recommendations</p>
+<p><strong>Technical Stack:</strong> - <strong>Platform</strong>: Quarto Dashboard - <strong>Language</strong>: R - <strong>Data Sources</strong>: World Development Indicators (WDI) - <strong>Visualization</strong>: ggplot2, plotly - <strong>Forecasting</strong>: forecast package</p>
+<p><strong>Updates:</strong> - Data refreshed monthly - Analysis updated quarterly - Special reports for major events</p>
+<p><strong>Data Availability Note:</strong> Some World Bank indicators may not be available or may have different codes across time periods. The dashboard uses fallback sample data where necessary and clearly indicates when real WDI data is not available.</p>
+<p><strong>Disclaimer:</strong> Views expressed are those of the author and do not necessarily reflect official positions of QAU or any other institution.</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title">
+<p><strong>Professor Zahid Asghar</strong></p>
+</div>
+<div class="card-body html-fill-item html-fill-container">
+<p><strong>Academic Profile:</strong> - Professor of Economics - School of Economics, Quaid-i-Azam University - Research interests: Macroeconomics, Development, Applied AI</p>
+<p><strong>Contact Information:</strong> - 📧 Email: zahid@qau.edu.pk - 🐦 Twitter: <a href="https://twitter.com/zahedasghar"><span class="citation" data-cites="zahedasghar">@zahedasghar</span></a> - 💼 LinkedIn: <a href="https://linkedin.com/in/zahedasghar">/in/zahedasghar</a> - 🐙 GitHub: <a href="https://github.com/zahedasghar">/zahedasghar</a></p>
+<p><strong>Related Resources:</strong> - <a href="https://economics.qau.edu.pk">QAU Economics Department</a> - <a href="https://finance.gov.pk">Pakistan Economic Survey</a> - <a href="https://sbp.org.pk">State Bank of Pakistan</a> - <a href="https://pbs.gov.pk">PBS Statistics</a></p>
+<p><strong>Collaboration:</strong> Open to research collaborations, data sharing, and policy consultations. Please reach out for: - Custom economic analysis - Training workshops on R/Quarto - Research partnerships - Data requests</p>
+<p><strong>Citation:</strong> Asghar, Z. (2024). Pakistan Economic Observatory. Quaid-i-Azam University. Available at: [URL]</p>
+<p><strong>Troubleshooting:</strong> If you encounter data loading issues, try: 1. Clearing the cache files (pak_econ_data_*.rds) 2. Checking your internet connection for WDI access 3. Using the alternative data sources mentioned</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-container html-fill-item">
+<p><strong>Last Updated:</strong> August 02, 2025</p>
+<p>This dashboard provides comprehensive real-time analysis of Pakistan’s economic indicators with:</p>
+<ul>
+<li><strong>Macroeconomic Trends</strong>: GDP, inflation, fiscal metrics</li>
+<li><strong>External Sector</strong>: Trade, reserves, debt dynamics</li>
+<li><strong>Social Indicators</strong>: Poverty, employment, development</li>
+<li><strong>Policy Analysis</strong>: Monetary and fiscal policy effectiveness</li>
+<li><strong>Comparative Analysis</strong>: Regional peer comparisons</li>
+<li><strong>Forecasts</strong>: Short-term economic projections</li>
+</ul>
+<p><strong>Key Features:</strong> - 📈 Interactive visualizations - 🔄 Auto-updated data from World Bank - 📊 Peer country comparisons - 🎯 Policy recommendations - 📉 Trend analysis &amp; forecasts</p>
+<p><strong>Data Sources:</strong> - World Development Indicators (WDI) - State Bank of Pakistan - Pakistan Bureau of Statistics - Ministry of Finance</p>
+<p><strong>Data Status:</strong> ✅ Using cached WDI data</p>
+<hr>
+<p>📧 <strong>Contact:</strong> zahid@qau.edu.pk</p>
+</div></aside>
+<button class="collapse-toggle" type="button" title="Toggle sidebar" aria-expanded="true" aria-controls="bslib-sidebar-1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="bi bi-chevron-left collapse-icon" style="fill:currentColor;" aria-hidden="true" role="img">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+    </svg>
+</button>
+<script data-bslib-sidebar-init="">
+bslib.Sidebar.initCollapsibleAll()
+</script>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
