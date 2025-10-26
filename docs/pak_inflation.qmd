@@ -1,16 +1,18 @@
 ---
 title: "Pakistan Inflation Dashboard"
 subtitle: "Underlying Inflation Measures & Monetary Policy Tracker"
-author: "State Bank of Pakistan Analysis"
-date: "September 2025"
+author: "Zahid Asghar"
+date: "October 2025"
 format:
   dashboard:
+    theme: [cosmo, custom-dashboard-theme.scss]  # Combine base theme with custom
+    # OR use custom only:
+    # theme: custom-dashboard-theme.scss
     document-css: false
     link-citations: true
     date-format: long
     lang: en
     page-layout: custom
-    theme: cosmo
     #logo: ""
     nav-buttons:
       - icon: github
